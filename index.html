@@ -1,0 +1,907 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMART MD — Triple-Verified Research Compounds | 3 Independent Labs, Every Batch</title>
+<meta name="description" content="Triple-verified research compounds. 3 independent labs. Every batch. Every compound. No exceptions. Public COA on every batch number — verify free, no account required.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smartmdpeptides.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- GEO / AI-citability: Organization + WebSite schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://smartmdpeptides.com/#org",
+      "name": "SMART MD",
+      "legalName": "SMART LLC",
+      "url": "https://smartmdpeptides.com/",
+      "slogan": "Triple-verified research compounds. 3 independent labs. Every batch. Every compound. No exceptions.",
+      "description": "U.S.-based supplier of triple-verified research compounds for in vitro and preclinical research only. Every batch is verified by three independent laboratories — HPLC purity, mass spectrometry identity, and LAL endotoxin panel — with a publicly searchable Certificate of Analysis on every batch number.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-251-387-7712",
+        "contactType": "customer service"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://smartmdpeptides.com/#website",
+      "url": "https://smartmdpeptides.com/",
+      "name": "SMART MD",
+      "publisher": { "@id": "https://smartmdpeptides.com/#org" },
+      "description": "Triple-verified research compounds. 3 independent labs. Every batch. Public COA verification on every batch number — free, no account required."
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --black:#0a0a0a;
+  --surface:#1a1a1a;
+  --white:#ffffff;
+  --red:#ed1c24;
+  --gray:#9a9a9a;
+  --gray-dim:#6b6b6b;
+  --display:'Barlow Condensed',Impact,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+html,body{background:var(--black);color:var(--white)}
+body{font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red);color:var(--white)}
+
+/* ---------- canvas layer ---------- */
+#gl{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease-out}
+#gl.on{opacity:1}
+canvas{display:block}
+
+/* ---------- grain overlay ---------- */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:30;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ---------- progress rail ---------- */
+.rail{position:fixed;top:0;right:0;width:2px;height:100vh;z-index:40;background:rgba(255,255,255,.06)}
+.rail i{display:block;width:100%;height:0%;background:var(--red);transform-origin:top;will-change:height}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:22px clamp(20px,4vw,56px);mix-blend-mode:normal}
+.wordmark{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px}
+.wordmark b{display:inline-block;width:8px;height:8px;background:var(--red)}
+.hd-link{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;
+  padding:10px 18px;border:1px solid rgba(255,255,255,.22);transition:border-color .22s ease-out,color .22s ease-out,background .22s ease-out}
+.hd-link:hover,.hd-link:focus-visible{border-color:var(--red);color:var(--red)}
+.hd-link:focus-visible,.btn:focus-visible,.wordmark:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* ---------- section scaffolding ---------- */
+main{position:relative;z-index:10}
+.scene{position:relative}
+.scene .pin{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;will-change:opacity,transform}
+.inner{width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+
+/* default (no-JS / static) sections fully visible */
+.pin{opacity:1}
+
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--red);margin-bottom:26px}
+.eyebrow::before{content:"";width:42px;height:1px;background:var(--red)}
+h1,h2{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.005em}
+h1{font-size:clamp(58px,11vw,148px)}
+h2{font-size:clamp(40px,7vw,96px)}
+h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:clamp(20px,2.2vw,26px);letter-spacing:.04em}
+.lead{font-size:clamp(15px,1.35vw,19px);line-height:1.75;color:var(--gray);max-width:620px;margin-top:28px}
+.lead strong{color:var(--white);font-weight:600}
+
+.btn{display:inline-block;font-family:var(--body);font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  padding:17px 34px;transition:background .22s ease-out,color .22s ease-out,border-color .22s ease-out}
+.btn-solid{background:var(--red);color:var(--white);border:1px solid var(--red)}
+.btn-solid:hover{background:#c4131a;border-color:#c4131a}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:42px}
+
+/* ---------- hero ---------- */
+#hero .pin{align-items:center}
+#hero h1 span{display:block}
+#hero h1 .accent{color:var(--red)}
+@supports (-webkit-text-stroke: 1px red){
+  #hero h1 .accent{color:transparent;-webkit-text-stroke:1.5px var(--red)}
+}
+.scroll-hint{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gray-dim)}
+.scroll-hint::after{content:"";width:1px;height:46px;background:linear-gradient(var(--red),transparent)}
+
+/* CSS vial — static / low-power fallback visual only */
+.css-vial{display:none;position:relative;width:90px;height:240px;margin:48px auto 0}
+.static .css-vial{display:block}
+.css-vial .body{position:absolute;inset:30px 8px 0;border:1px solid rgba(255,255,255,.25);border-radius:14px 14px 22px 22px;
+  background:linear-gradient(110deg,rgba(255,255,255,.10),rgba(255,255,255,.02) 40%,rgba(255,255,255,.08));overflow:hidden}
+.css-vial .liquid{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,#ff2b33,#a30b11);box-shadow:0 0 42px 10px rgba(237,28,36,.55)}
+.css-vial .cap{position:absolute;top:0;left:22px;right:22px;height:30px;background:#222;border:1px solid #333;border-bottom:2px solid var(--red);border-radius:4px 4px 0 0}
+
+/* ---------- problem cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:54px}
+.card{background:rgba(16,16,16,.88);padding:34px 30px}
+.card h3{margin-bottom:14px}
+.card h3::before{content:"\2715";color:var(--red);margin-right:12px;font-size:.8em}
+.card p{font-size:13.5px;line-height:1.7;color:var(--gray)}
+
+/* ---------- process steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;margin-top:48px;counter-reset:none}
+.step{display:flex;gap:22px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.step .no{font-family:var(--display);font-weight:700;font-size:30px;color:var(--red);line-height:1;min-width:46px}
+.step h3{font-size:18px;margin-bottom:6px}
+.step p{font-size:13px;line-height:1.6;color:var(--gray)}
+.step .pass{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.step .pass::before{content:"\2713\00a0\00a0"}
+
+/* ---------- verify ---------- */
+.verify-badge{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:13px 22px;border:1px solid rgba(237,28,36,.45);
+  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--white);background:rgba(237,28,36,.07)}
+.verify-badge::before{content:"\2713";color:var(--red);font-size:15px}
+
+/* ---------- numbers ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:54px}
+.stat{background:rgba(16,16,16,.82);padding:38px 28px;text-align:left}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(40px,4.6vw,64px);line-height:1;color:var(--white)}
+.stat b em{font-style:normal;color:var(--red)}
+.stat span{display:block;margin-top:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-dim)}
+.compare{margin-top:46px;border-top:1px solid rgba(255,255,255,.12)}
+.compare-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px;align-items:baseline}
+.compare-row.head{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-dim);font-weight:600}
+.compare-row .us{color:var(--white);font-weight:600}
+.compare-row .us::before{content:"\2713\00a0\00a0";color:var(--red)}
+.compare-row .them{color:var(--gray-dim)}
+.compare-note{margin-top:22px;font-size:13px;color:var(--gray)}
+
+/* ---------- cta + footer ---------- */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);margin-top:54px}
+.path{background:rgba(16,16,16,.9);padding:44px 40px;display:flex;flex-direction:column;gap:16px}
+.path .who{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);font-weight:600}
+.path p{font-size:14px;color:var(--gray);line-height:1.7}
+.path small{font-size:11.5px;color:var(--gray-dim);line-height:1.6}
+.path .btn{align-self:flex-start;margin-top:8px}
+footer{position:relative;z-index:10;background:var(--black);border-top:1px solid rgba(255,255,255,.1);padding:64px clamp(20px,5vw,64px) 48px}
+.foot-inner{max-width:1180px;margin:0 auto}
+.foot-tag{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:20px;letter-spacing:.04em;max-width:560px}
+.foot-ruo{margin-top:18px;font-size:13px;font-weight:600;color:var(--white)}
+.foot-legal{margin-top:26px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-size:11.5px;line-height:1.8;color:var(--gray-dim);max-width:980px}
+
+/* ---------- static / low-power mode ---------- */
+.static .scene .pin{position:relative;min-height:0;padding:16vh 0}
+.static #hero .pin{min-height:100vh;padding:0}
+.static .scene{height:auto !important}
+.static .scroll-hint{display:none}
+.static .rail{display:none}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .paths{grid-template-columns:1fr}
+  .compare-row{grid-template-columns:1.2fr 1fr 1fr;font-size:11.5px;gap:10px}
+}
+@media (max-width:600px){
+  .card{padding:26px 22px}
+  .path{padding:32px 26px}
+  .pin{align-items:flex-start;padding-top:14vh}
+  #hero .pin{align-items:center;padding-top:0}
+}
+</style>
+</head>
+<body>
+
+<a class="visually-hidden" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+
+<div id="gl" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="rail" aria-hidden="true"><i id="railFill"></i></div>
+
+<header>
+  <a class="wordmark" href="https://smartmdpeptides.com/"><b></b>SMART&nbsp;MD</a>
+  <a class="hd-link" href="https://smartmdpeptides.com/verify">Verify a Batch</a>
+</header>
+
+<main id="main">
+
+  <!-- ============ SCENE 1 — HERO / VIAL ============ -->
+  <section class="scene" id="hero" data-h="160" aria-label="Hero">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">3 Independent Labs &middot; Every Batch &middot; No Exceptions</p>
+        <h1><span>Don't be dumb.</span><span class="accent">Be SMART.</span></h1>
+        <p class="lead">While other suppliers guess, <strong>we prove it</strong>. HPLC purity, mass spectrometry identity, LAL endotoxin panel — 3 independent labs on every single batch. 131 compounds. Every COA public. Zero exceptions.</p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="https://smartmdpeptides.com/">Explore Compounds</a>
+          <a class="btn btn-ghost" href="https://smartmdpeptides.com/verify">Verify a Batch</a>
+        </div>
+        <div class="css-vial" aria-hidden="true"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 2 — THE PROBLEM / LATTICE ============ -->
+  <section class="scene" id="problem" data-h="170" aria-label="The problem">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">The Problem</p>
+        <h2>The Research Space<br>Has a Lying Problem.</h2>
+        <p class="lead">One-lab COAs. Batch numbers that trace nowhere. Purity claims with zero supporting data. You're the one running the research — you're the one who pays when the data is wrong. <strong>We decided to fix it.</strong></p>
+        <div class="cards">
+          <div class="card">
+            <h3>Single-lab "verification" proves nothing</h3>
+            <p>One HPLC report can be forged, outdated, or from a non-accredited facility. We require three independent labs — no overlapping ownership, no shared financial incentives.</p>
+          </div>
+          <div class="card">
+            <h3>Batch numbers that trace nowhere</h3>
+            <p>If you can't enter a batch number and pull live data, the COA is theater. Every SMART MD batch is permanently logged and publicly verifiable.</p>
+          </div>
+          <div class="card">
+            <h3>No endotoxin screening</h3>
+            <p>HPLC tells you purity. It doesn't tell you bioburden. We run LAL endotoxin panels on every batch — standard in pharmaceutical manufacturing. We decided it should be standard here too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 3 — 7-STEP PROCESS ============ -->
+  <section class="scene" id="process" data-h="200" aria-label="The verification standard">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">The SMART MD Standard</p>
+        <h2>7 Steps. Every Batch.<br>No Exceptions.</h2>
+        <div class="steps">
+          <div class="step"><span class="no" aria-hidden="true">01</span><div><h3>GMP Synthesis Sourcing</h3><p>Verified partners under Good Manufacturing Practice conditions with documented chain-of-custody records.</p></div></div>
+          <div class="step"><span class="no" aria-hidden="true">02</span><div><h3>Internal QC Gate</h3><p>Visual inspection, lyophilization quality, packaging integrity. Doesn't clear this gate, never reaches an external lab.</p></div></div>
+          <div class="step"><span class="no" aria-hidden="true">03</span><div><h3>HPLC — Lab 1</h3><p>High-performance liquid chromatography. Purity confirmation at accredited external facility.</p><span class="pass">Hard reject below 98.0%</span></div></div>
+          <div class="step"><span class="no" aria-hidden="true">04</span><div><h3>Mass Spectrometry — Lab 2</h3><p>Independent molecular weight verification. Rules out structural analogues that HPLC can't detect.</p></div></div>
+          <div class="step"><span class="no" aria-hidden="true">05</span><div><h3>Endotoxin + Microbial — Lab 3</h3><p>LAL endotoxin assay + full microbial panel at a third independent facility. The step most suppliers skip entirely.</p><span class="pass">Must pass &lt;5 EU/mg</span></div></div>
+          <div class="step"><span class="no" aria-hidden="true">06</span><div><h3>COA Issued + Batch Logged</h3><p>Certificate of Analysis from all three labs. Batch number permanently logged to our public verification system.</p></div></div>
+          <div class="step"><span class="no" aria-hidden="true">07</span><div><h3>Released to Researchers</h3><p>Only after all three labs pass. Adds time. That's the correct tradeoff and we've never reconsidered it.</p><span class="pass">Verifiable at any time, by anyone</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 4 — VERIFY / COA HOLOGRAM ============ -->
+  <section class="scene" id="verify" data-h="200" aria-label="Verification">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">Verification</p>
+        <h2>Most Won't Verify.<br>We Do.</h2>
+        <p class="lead">Enter the batch number on your vial label. No account required. No cost. You'll see the full COA: purity, mass spec result, endotoxin value, lab names, and test dates. <strong>Every batch we've ever released is permanently on file.</strong></p>
+        <div class="verify-badge">Always, free, no account</div>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="https://smartmdpeptides.com/verify">Verify Any Batch Free &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 5 — BY THE NUMBERS ============ -->
+  <section class="scene" id="numbers" data-h="170" aria-label="By the numbers">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">By the Numbers</p>
+        <h2>How We Stack Up</h2>
+        <p class="lead">Put us next to anyone in this space. <strong>The data speaks.</strong></p>
+        <div class="stats">
+          <div class="stat"><b>5,000<em>+</em></b><span>Researchers Served</span></div>
+          <div class="stat"><b>111</b><span>Active SKUs</span></div>
+          <div class="stat"><b>99.1<em>%</em></b><span>Avg. COA Purity</span></div>
+          <div class="stat"><b><em>$</em>0</b><span>Outside Capital</span></div>
+        </div>
+        <div class="compare">
+          <div class="compare-row head"><span>Verification Standard</span><span>SMART MD</span><span>Typical Supplier</span></div>
+          <div class="compare-row"><span>Third-party lab count</span><span class="us">3 independent labs</span><span class="them">1 (often in-house)</span></div>
+          <div class="compare-row"><span>Publicly searchable COA by batch #</span><span class="us">Always, free, no account</span><span class="them">PDF on request only</span></div>
+          <div class="compare-row"><span>Mass spectrometry verification</span><span class="us">Every batch, standard</span><span class="them">Selective</span></div>
+          <div class="compare-row"><span>LAL endotoxin panel</span><span class="us">Every batch</span><span class="them">Not offered</span></div>
+          <div class="compare-row"><span>Hard purity reject threshold</span><span class="us">98% minimum — no exceptions</span><span class="them">Self-reported</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 6 — PICK YOUR PATH ============ -->
+  <section class="scene" id="cta" data-h="160" aria-label="Get started">
+    <div class="pin">
+      <div class="inner">
+        <p class="eyebrow">Get Started</p>
+        <h2>Pick Your Path</h2>
+        <p class="lead">Two ways in. <strong>Both backed by the same verification standard.</strong></p>
+        <div class="paths">
+          <div class="path">
+            <span class="who">Individual Researcher</span>
+            <h3>Browse the Catalog</h3>
+            <p>131 verified research compounds. Filter by category. Verify any batch before you commit. Free COA lookup, no account required.</p>
+            <small>All compounds for qualified research use only. Not for human consumption.</small>
+            <a class="btn btn-solid" href="https://smartmdpeptides.com/">Browse All Compounds</a>
+          </div>
+          <div class="path">
+            <span class="who">Clinic / Med Spa / Institution</span>
+            <h3>Wholesale Access</h3>
+            <p>Volume pricing, dedicated account management, priority batch allocation, and COA documentation on every order. Apply in 3 minutes.</p>
+            <small>Licensed practitioners only. Manual review — no automated approvals.</small>
+            <a class="btn btn-ghost" href="https://smartmdpeptides.com/wholesale">Apply for Wholesale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p class="foot-tag">Triple-verified research compounds. 3 independent labs. Every batch. Every compound. No exceptions.</p>
+    <p class="foot-ruo">For in vitro and preclinical research only. Not for human consumption. Not evaluated by the FDA.</p>
+    <p class="foot-legal">All products sold by SMART MD Peptides / SMART LLC are intended for in vitro and preclinical research purposes only. Not for human or animal consumption. Not intended to diagnose, treat, cure, or prevent any disease or condition. These statements have not been evaluated by the Food and Drug Administration. All products are sold in accordance with 21 CFR 809.10(c) and must be handled by qualified research personnel in controlled laboratory environments. Purchasers must attest to qualified researcher status prior to acquisition. SMART MD Peptides makes no representations regarding human efficacy or safety for any compound in its catalog. &copy; 2026 SMART MD Peptides / SMART LLC. Los Angeles, CA. All rights reserved.</p>
+  </div>
+</footer>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+/* =====================================================================
+   SMART MD — scroll-driven 3D experience (STAGING)
+   Content layer = real DOM (above). 3D = decorative wrapper, lazy-init.
+   ===================================================================== */
+
+const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
+const lerp  = (a,b,t)=>a+(b-a)*t;
+const smooth= (a,b,v)=>{const t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t);};
+
+/* ---------- capability gate ---------- */
+const mqReduced = matchMedia('(prefers-reduced-motion: reduce)');
+const isMobile  = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
+const cores     = navigator.hardwareConcurrency || 4;
+const devMem    = navigator.deviceMemory || 8;
+const smallScr  = innerWidth < 768;
+const lowPower  = mqReduced.matches || cores < 4 || (isMobile && (cores <= 4 || devMem < 4));
+
+function webglOK(){
+  try{
+    const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  }catch(e){ return false; }
+}
+
+/* ---------- scroll plumbing (runs in both modes) ---------- */
+const scenes = [...document.querySelectorAll('.scene')];
+const pins   = scenes.map(s=>s.querySelector('.pin'));
+const rail   = document.getElementById('railFill');
+
+function sizeScenes(){
+  if(document.body.classList.contains('static')) return;
+  scenes.forEach(s=>{ s.style.height = (parseFloat(s.dataset.h)||160) + 'vh'; });
+}
+
+let scrollTarget = 0, scrollCur = 0;
+function readScroll(){
+  const max = document.documentElement.scrollHeight - innerHeight;
+  scrollTarget = max > 0 ? clamp(scrollY / max, 0, 1) : 0;
+}
+addEventListener('scroll', readScroll, {passive:true});
+addEventListener('resize', ()=>{ readScroll(); }, {passive:true});
+
+/* per-section fade driven by each wrapper's own travel */
+function updateSections(){
+  for(let i=0;i<scenes.length;i++){
+    const r = scenes[i].getBoundingClientRect();
+    const travel = r.height - innerHeight;
+    if(travel <= 0) continue;
+    const local = clamp(-r.top / travel, 0, 1);
+    const fadeIn = (i === 0) ? 1 : smooth(0, .12, local);   /* hero is visible at load */
+    const op = fadeIn * (1 - smooth(.86, 1, local));
+    const ty = (1 - fadeIn) * 36 - smooth(.86, 1, local) * 36;
+    pins[i].style.opacity = op.toFixed(3);
+    pins[i].style.transform = 'translate3d(0,' + ty.toFixed(1) + 'px,0)';
+  }
+  if(rail) rail.style.height = (scrollCur*100).toFixed(2) + '%';
+}
+
+/* ---------- static fallback path ---------- */
+function goStatic(){
+  document.body.classList.add('static');
+  scenes.forEach(s=>{ s.style.height='auto'; });
+  pins.forEach(p=>{ p.style.opacity='1'; p.style.transform='none'; });
+  if(rail) rail.style.height='0%';
+}
+
+if(lowPower || !webglOK()){
+  goStatic();
+}else{
+  sizeScenes();
+  readScroll();
+  /* lightweight DOM loop until 3D boots (then 3D loop takes over) */
+  let domLoop = true;
+  (function tick(){
+    if(!domLoop) return;
+    scrollCur = lerp(scrollCur, scrollTarget, .09);
+    updateSections();
+    requestAnimationFrame(tick);
+  })();
+
+  /* lazy-init 3D after first paint + load */
+  const start = ()=>{ setTimeout(()=>{ boot().then(()=>{ domLoop = false; }).catch(err=>{ console.warn('3D init failed — static mode.', err); domLoop=false; goStatic(); }); }, 120); };
+  (document.readyState === 'complete') ? start() : addEventListener('load', start, {once:true});
+}
+
+/* =====================================================================
+   3D BOOT
+   ===================================================================== */
+async function boot(){
+  const THREE = await import('three');
+  const {EffectComposer} = await import('three/addons/postprocessing/EffectComposer.js');
+  const {RenderPass}     = await import('three/addons/postprocessing/RenderPass.js');
+  const {UnrealBloomPass}= await import('three/addons/postprocessing/UnrealBloomPass.js');
+  const {OutputPass}     = await import('three/addons/postprocessing/OutputPass.js');
+  const {RoomEnvironment}= await import('three/addons/environments/RoomEnvironment.js');
+
+  const holder = document.getElementById('gl');
+  const small = innerWidth < 768;
+  let dpr = Math.min(devicePixelRatio || 1, small ? 1.5 : 2);
+
+  const renderer = new THREE.WebGLRenderer({antialias: dpr <= 1.5, powerPreference:'high-performance'});
+  renderer.setPixelRatio(dpr);
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  holder.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0a0a0a);
+  scene.fog = new THREE.FogExp2(0x0a0a0a, 0.018);
+
+  const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, .1, 300);
+  camera.position.set(0, .3, 7.5);
+
+  /* environment for glass/metal reflections */
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), .04).texture;
+
+  /* ---------- lights ---------- */
+  scene.add(new THREE.AmbientLight(0x404040, .7));
+  const key = new THREE.DirectionalLight(0xffffff, 1.0);
+  key.position.set(5, 8, 4);
+  scene.add(key);
+
+  /* =================== SCENE A — THE VIAL =================== */
+  const vial = new THREE.Group();
+  vial.position.x = small ? 0 : 2.6;          /* desktop: vial sits right of the headline */
+  if(small) vial.scale.setScalar(.8);
+  scene.add(vial);
+
+  const glassMat = new THREE.MeshPhysicalMaterial({
+    color:0xeeeeee, metalness:0, roughness:.06, transparent:true, opacity:.16,
+    envMapIntensity:1.4, clearcoat:1, clearcoatRoughness:.08, side:THREE.DoubleSide, depthWrite:false
+  });
+  const glass = new THREE.Mesh(new THREE.CylinderGeometry(.62,.62,2.3,48,1,true), glassMat);
+  vial.add(glass);
+  const glassBottom = new THREE.Mesh(new THREE.SphereGeometry(.62,48,24,0,Math.PI*2,Math.PI/2,Math.PI/2), glassMat);
+  glassBottom.scale.y = .35; glassBottom.position.y = -1.15;
+  vial.add(glassBottom);
+
+  /* red liquid (emissive — feeds bloom) */
+  const liquidMat = new THREE.MeshStandardMaterial({
+    color:0x550508, emissive:new THREE.Color(0xed1c24), emissiveIntensity:3.4,
+    roughness:.25, metalness:0, transparent:true, opacity:.92
+  });
+  const liquid = new THREE.Mesh(new THREE.CylinderGeometry(.54,.54,1.02,40), liquidMat);
+  liquid.position.y = -.62;
+  vial.add(liquid);
+  /* meniscus dome */
+  const meniscus = new THREE.Mesh(new THREE.SphereGeometry(.54,40,18,0,Math.PI*2,0,Math.PI/2), liquidMat);
+  meniscus.scale.y = .14; meniscus.position.y = -.11;
+  vial.add(meniscus);
+
+  /* frosted cap + red brand band */
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(.68,.68,.5,48),
+    new THREE.MeshStandardMaterial({color:0x1d1d1f, roughness:.85, metalness:.25}));
+  cap.position.y = 1.42; vial.add(cap);
+  const band = new THREE.Mesh(new THREE.CylinderGeometry(.685,.685,.07,48),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(4,.25,.3)}));
+  band.position.y = 1.14; vial.add(band);
+
+  /* fresnel rim glow shell */
+  const rimMat = new THREE.ShaderMaterial({
+    transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, side:THREE.BackSide,
+    uniforms:{ uColor:{value:new THREE.Color(0xed1c24)}, uPow:{value:3.0}, uInt:{value:1.15} },
+    vertexShader:`
+      varying float vF;
+      void main(){
+        vec3 n = normalize(normalMatrix * normal);
+        vec4 mv = modelViewMatrix * vec4(position,1.0);
+        vec3 v = normalize(-mv.xyz);
+        vF = pow(1.0 - abs(dot(n, v)), 3.0);
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader:`
+      uniform vec3 uColor; uniform float uInt;
+      varying float vF;
+      void main(){ gl_FragColor = vec4(uColor * vF * uInt, vF); }`
+  });
+  const rim = new THREE.Mesh(new THREE.CylinderGeometry(.66,.66,2.42,48,1,true), rimMat);
+  vial.add(rim);
+
+  /* inner red light */
+  const innerLight = new THREE.PointLight(0xed1c24, 6, 7, 2);
+  innerLight.position.set(0,-.4,0);
+  vial.add(innerLight);
+
+  /* =================== PARTICLE FIELD (full journey) =================== */
+  const COUNT = small ? 1100 : 2600;
+  const pGeo = new THREE.BufferGeometry();
+  const pPos = new Float32Array(COUNT*3);
+  const pCol = new Float32Array(COUNT*3);
+  const pSeed= new Float32Array(COUNT);
+  const pSize= new Float32Array(COUNT);
+  for(let i=0;i<COUNT;i++){
+    pPos[i*3]   = (Math.random()-.5)*46;
+    pPos[i*3+1] = (Math.random()-.5)*26;
+    pPos[i*3+2] = 8 - Math.random()*165;            /* spread along the camera path */
+    const red = Math.random() < .09;
+    if(red){ pCol[i*3]=2.4; pCol[i*3+1]=.22; pCol[i*3+2]=.26; }
+    else { const b=.35+Math.random()*.4; pCol[i*3]=b; pCol[i*3+1]=b; pCol[i*3+2]=b*1.05; }
+    pSeed[i]=Math.random();
+    pSize[i]= red ? 2.4+Math.random()*2 : 1+Math.random()*1.8;
+  }
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos,3));
+  pGeo.setAttribute('aColor',   new THREE.BufferAttribute(pCol,3));
+  pGeo.setAttribute('aSeed',    new THREE.BufferAttribute(pSeed,1));
+  pGeo.setAttribute('aSize',    new THREE.BufferAttribute(pSize,1));
+  const pMat = new THREE.ShaderMaterial({
+    transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+    uniforms:{ uTime:{value:0} },
+    vertexShader:`
+      attribute vec3 aColor; attribute float aSeed; attribute float aSize;
+      uniform float uTime;
+      varying vec3 vColor;
+      void main(){
+        vColor = aColor;
+        vec3 p = position;
+        /* curl-ish layered drift */
+        p.x += sin(uTime*.11 + aSeed*6.2831)*1.6 + sin(uTime*.043 + aSeed*12.7)*0.9;
+        p.y += cos(uTime*.09  + aSeed*4.1)*1.3   + sin(uTime*.061 + aSeed*8.3)*0.6;
+        p.z += sin(uTime*.07  + aSeed*9.4)*1.1;
+        vec4 mv = modelViewMatrix * vec4(p,1.0);
+        gl_PointSize = min(aSize * (130.0 / max(0.1,-mv.z)), 56.0);
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader:`
+      varying vec3 vColor;
+      void main(){
+        float d = length(gl_PointCoord - 0.5);
+        float a = smoothstep(0.5, 0.08, d);
+        gl_FragColor = vec4(vColor, a*0.65);
+      }`
+  });
+  const particles = new THREE.Points(pGeo, pMat);
+  scene.add(particles);
+
+  /* =================== SCENE B — MOLECULE LATTICE (abstract) =================== */
+  const LATTICE_Z = -70;
+  const lattice = new THREE.Group();
+  lattice.position.set(0, 0, LATTICE_Z);
+  scene.add(lattice);
+
+  const NODES = 56, R = 6;
+  const nodePos = [];
+  for(let i=0;i<NODES;i++){
+    /* fibonacci sphere + jitter — purely abstract, not a named molecule */
+    const phi = Math.acos(1 - 2*(i+.5)/NODES);
+    const th  = Math.PI * (1 + Math.sqrt(5)) * i;
+    const j = ()=> (Math.random()-.5)*1.6;
+    nodePos.push(new THREE.Vector3(
+      R*Math.sin(phi)*Math.cos(th)+j(), R*Math.sin(phi)*Math.sin(th)+j(), R*Math.cos(phi)+j()
+    ));
+  }
+  const sphereGeo = new THREE.SphereGeometry(.18, 14, 14);
+  const grayNodes = new THREE.InstancedMesh(sphereGeo,
+    new THREE.MeshStandardMaterial({color:0xc9c9c9, roughness:.35, metalness:.15}), NODES-8);
+  const redNodes  = new THREE.InstancedMesh(new THREE.SphereGeometry(.24,14,14),
+    new THREE.MeshStandardMaterial({color:0x330305, emissive:new THREE.Color(0xed1c24), emissiveIntensity:3.2, roughness:.4}), 8);
+  const m4 = new THREE.Matrix4();
+  let gi=0, ri=0;
+  nodePos.forEach((v,i)=>{
+    m4.setPosition(v);
+    if(i % 7 === 0 && ri < 8){ redNodes.setMatrixAt(ri++, m4); }
+    else if(gi < NODES-8){ grayNodes.setMatrixAt(gi++, m4); }
+  });
+  grayNodes.instanceMatrix.needsUpdate = true;
+  redNodes.instanceMatrix.needsUpdate = true;
+  lattice.add(grayNodes, redNodes);
+
+  /* bonds — connect near neighbours */
+  const bondVerts = [];
+  for(let i=0;i<NODES;i++) for(let k=i+1;k<NODES;k++){
+    if(nodePos[i].distanceTo(nodePos[k]) < 3.4){
+      bondVerts.push(nodePos[i].x,nodePos[i].y,nodePos[i].z, nodePos[k].x,nodePos[k].y,nodePos[k].z);
+    }
+  }
+  const bondGeo = new THREE.BufferGeometry();
+  bondGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(bondVerts),3));
+  const bonds = new THREE.LineSegments(bondGeo,
+    new THREE.LineBasicMaterial({color:0x888888, transparent:true, opacity:.3}));
+  lattice.add(bonds);
+  const latticeLight = new THREE.PointLight(0xffffff, 30, 40, 2);
+  latticeLight.position.set(6, 8, LATTICE_Z+8);
+  scene.add(latticeLight);
+
+  /* =================== SCENE C — HOLOGRAPHIC COA =================== */
+  const COA_Z = -140;
+  const coaGroup = new THREE.Group();
+  coaGroup.position.set(0, .2, COA_Z);
+  scene.add(coaGroup);
+
+  /* procedural COA document texture (decorative furniture only) */
+  function makeCOATexture(){
+    const c = document.createElement('canvas'); c.width=512; c.height=680;
+    const x = c.getContext('2d');
+    x.fillStyle='#0c0c0e'; x.fillRect(0,0,512,680);
+    x.strokeStyle='rgba(255,255,255,0.18)'; x.strokeRect(14,14,484,652);
+    x.fillStyle='#ed1c24'; x.fillRect(36,46,440,3);
+    x.fillStyle='#ffffff'; x.font='700 26px Arial'; x.fillText('CERTIFICATE OF ANALYSIS', 36, 92);
+    x.fillStyle='rgba(255,255,255,0.5)'; x.font='12px Arial';
+    x.fillText('BATCH VERIFICATION RECORD', 36, 116);
+    /* data rows */
+    const rows = [['HPLC PURITY','LAB 1'],['MASS SPEC IDENTITY','LAB 2'],['LAL ENDOTOXIN','LAB 3']];
+    let y=170;
+    rows.forEach(r=>{
+      x.fillStyle='rgba(255,255,255,0.85)'; x.font='600 15px Arial'; x.fillText(r[0],36,y);
+      x.fillStyle='#ed1c24'; x.font='600 12px Arial'; x.fillText(r[1],420,y);
+      x.strokeStyle='rgba(255,255,255,0.12)'; x.beginPath(); x.moveTo(36,y+14); x.lineTo(476,y+14); x.stroke();
+      /* fake spectrum line under each row */
+      x.strokeStyle='rgba(237,28,36,0.55)'; x.beginPath();
+      for(let px=36;px<=476;px+=4){
+        const v = y+44 - Math.max(0, 26*Math.exp(-Math.pow((px-150-Math.random()*4)/9,2))) - Math.random()*3;
+        px===36 ? x.moveTo(px,v) : x.lineTo(px,v);
+      }
+      x.stroke();
+      y+=120;
+    });
+    /* ledger lines */
+    x.fillStyle='rgba(255,255,255,0.22)';
+    for(let i=0;i<6;i++){ x.fillRect(36, 540+i*18, 180+Math.random()*220, 5); }
+    return new THREE.CanvasTexture(c);
+  }
+  const coaTex = makeCOATexture();
+  coaTex.colorSpace = THREE.SRGBColorSpace;
+
+  const coaMat = new THREE.ShaderMaterial({
+    transparent:true, depthWrite:false, side:THREE.DoubleSide,
+    uniforms:{ map:{value:coaTex}, uReveal:{value:0}, uTime:{value:0} },
+    vertexShader:`
+      varying vec2 vUv;
+      void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+    fragmentShader:`
+      uniform sampler2D map; uniform float uReveal; uniform float uTime;
+      varying vec2 vUv;
+      void main(){
+        vec4 tex = texture2D(map, vUv);
+        float prog = 1.0 - vUv.y;                 /* assemble top -> bottom */
+        float vis  = step(prog, uReveal);
+        float edge = smoothstep(0.05, 0.0, abs(uReveal - prog)) * step(0.001, uReveal) * step(uReveal, 0.999);
+        float scan = 0.93 + 0.07 * sin(vUv.y * 900.0 + uTime * 3.0);
+        vec3 col = tex.rgb * scan + vec3(3.2, 0.25, 0.3) * edge;
+        float alpha = vis * 0.95 + edge;
+        gl_FragColor = vec4(col, clamp(alpha, 0.0, 1.0));
+      }`
+  });
+  const coaPlane = new THREE.Mesh(new THREE.PlaneGeometry(5.4, 7.2), coaMat);
+  coaGroup.add(coaPlane);
+
+  /* red frame edges (HDR — blooms) */
+  const frame = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.PlaneGeometry(5.7, 7.5)),
+    new THREE.LineBasicMaterial({color:new THREE.Color(3.4,.22,.27), transparent:true, opacity:0})
+  );
+  coaGroup.add(frame);
+
+  /* VERIFIED stamp (decorative; narrative copy lives in DOM) */
+  function makeStampTexture(){
+    const c = document.createElement('canvas'); c.width=512; c.height=256;
+    const x = c.getContext('2d');
+    x.translate(256,128); x.rotate(-0.12);
+    x.strokeStyle='#ff2730'; x.lineWidth=10; x.strokeRect(-200,-70,400,140);
+    x.fillStyle='#ff2730'; x.font='700 86px Arial'; x.textAlign='center'; x.textBaseline='middle';
+    x.fillText('VERIFIED', 0, 6);
+    return new THREE.CanvasTexture(c);
+  }
+  const stampTex = makeStampTexture();
+  stampTex.colorSpace = THREE.SRGBColorSpace;
+  const stamp = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.6, 1.8),
+    new THREE.MeshBasicMaterial({map:stampTex, transparent:true, opacity:0, color:new THREE.Color(2.6,.5,.55), blending:THREE.AdditiveBlending, depthWrite:false})
+  );
+  stamp.position.set(.2, -1.6, .06);
+  coaGroup.add(stamp);
+
+  const coaLight = new THREE.PointLight(0xffffff, 14, 24, 2);
+  coaLight.position.set(-3, 4, COA_Z + 6);
+  scene.add(coaLight);
+
+  /* finale: red data-grid floor revealed as the camera pulls up and back */
+  const grid = new THREE.GridHelper(90, 48, 0xed1c24, 0x2a2a2a);
+  grid.position.set(0, -6, COA_Z + 6);
+  grid.material.transparent = true;
+  grid.material.opacity = 0;
+  grid.material.depthWrite = false;
+  scene.add(grid);
+
+  /* =================== POST — selective bloom on emissive red =================== */
+  let composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  /* threshold .55: red has low luminance weight (.2126) — .85 would never bloom brand-red emissives */
+  const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), .6, .5, .55);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+  let useComposer = true;
+
+  /* =================== CAMERA PATH (scroll keyframes) =================== */
+  const K = [
+    {p:0.00, pos:[0,   .3,  7.5 ], look:[0,  0,   0  ]},
+    {p:0.10, pos:[3.1, 1.5, 5.4 ], look:[0,  .2,  0  ]},
+    {p:0.20, pos:[1.2, .6,  2.2 ], look:[0,  0, -70  ]},
+    {p:0.36, pos:[0,   .9, -55  ], look:[0,  0, -70  ]},
+    {p:0.50, pos:[-8.2,3.1,-66  ], look:[0,  0, -70  ]},
+    {p:0.58, pos:[-2,  .6, -96  ], look:[0,  .2,-140 ]},
+    {p:0.68, pos:[0,   .25,-131.4], look:[0, .2,-140 ]},
+    {p:0.78, pos:[.7,  .55,-130 ], look:[0,  .2,-140 ]},
+    {p:0.90, pos:[0,  3.6, -118 ], look:[0,  .6,-140 ]},
+    {p:1.00, pos:[0,  5.2, -110 ], look:[0, 1.0,-142 ]}
+  ];
+  const camPos = new THREE.Vector3(), camLook = new THREE.Vector3();
+  function sampleCamera(p){
+    let a = K[0], b = K[K.length-1];
+    for(let i=0;i<K.length-1;i++){
+      if(p >= K[i].p && p <= K[i+1].p){ a = K[i]; b = K[i+1]; break; }
+    }
+    const span = (b.p - a.p) || 1;
+    let t = clamp((p - a.p)/span, 0, 1);
+    t = t*t*(3-2*t); /* ease each segment */
+    camPos.set( lerp(a.pos[0],b.pos[0],t),  lerp(a.pos[1],b.pos[1],t),  lerp(a.pos[2],b.pos[2],t) );
+    camLook.set(lerp(a.look[0],b.look[0],t),lerp(a.look[1],b.look[1],t),lerp(a.look[2],b.look[2],t));
+  }
+
+  /* ---------- pointer parallax ---------- */
+  let mx=0, my=0, mxC=0, myC=0;
+  addEventListener('pointermove', e=>{
+    mx = (e.clientX/innerWidth - .5) * 2;
+    my = (e.clientY/innerHeight - .5) * 2;
+  }, {passive:true});
+
+  /* ---------- visibility pause ---------- */
+  let running = true, rafId = 0;
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden){ running = false; cancelAnimationFrame(rafId); }
+    else if(!running){ running = true; clock.getDelta(); loop(); }
+  });
+
+  /* ---------- resize ---------- */
+  let rsT;
+  addEventListener('resize', ()=>{
+    clearTimeout(rsT);
+    rsT = setTimeout(()=>{
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+      composer.setSize(innerWidth, innerHeight);
+    }, 120);
+  }, {passive:true});
+
+  /* ---------- adaptive quality ---------- */
+  let frames = 0, accum = 0, degraded = false;
+  function checkPerf(dt){
+    if(degraded) return;
+    frames++; accum += dt;
+    if(frames >= 140){
+      const avg = accum / frames;            /* seconds per frame */
+      if(avg > 0.024){                       /* < ~42fps sustained */
+        degraded = true;
+        useComposer = false;                 /* drop bloom */
+        dpr = 1; renderer.setPixelRatio(1);
+        renderer.setSize(innerWidth, innerHeight);
+        pGeo.setDrawRange(0, Math.floor(COUNT*.5));
+      }
+      frames = 0; accum = 0;
+    }
+  }
+
+  /* =================== MAIN LOOP =================== */
+  const clock = new THREE.Clock();
+  function loop(){
+    if(!running) return;
+    rafId = requestAnimationFrame(loop);
+    const dt = Math.min(clock.getDelta(), .05);
+    const t = clock.elapsedTime;
+
+    /* damped scroll scrub */
+    const k = 1 - Math.exp(-6.5 * dt);
+    scrollCur = lerp(scrollCur, scrollTarget, k);
+    const p = scrollCur;
+
+    /* camera */
+    sampleCamera(p);
+    mxC = lerp(mxC, mx, .06); myC = lerp(myC, my, .06);
+    camera.position.set(camPos.x + mxC*.45, camPos.y - myC*.3, camPos.z);
+    camera.lookAt(camLook.x, camLook.y, camLook.z);
+
+    /* vial idle motion */
+    vial.position.y = Math.sin(t*.8)*.09;
+    vial.rotation.y = t*.18 + p*2.0;
+    rim.material.uniforms.uInt.value = 1.0 + Math.sin(t*1.7)*.18;
+    innerLight.intensity = 5.4 + Math.sin(t*2.3)*.9;
+
+    /* particles */
+    pMat.uniforms.uTime.value = t;
+
+    /* lattice */
+    lattice.rotation.y = t*.07 + smooth(.2,.58,p)*2.6;
+    lattice.rotation.x = Math.sin(t*.11)*.08;
+
+    /* COA choreography: assemble 0.56→0.70, stamp 0.70→0.77, frame with reveal */
+    const reveal = smooth(.56, .70, p);
+    coaMat.uniforms.uReveal.value = reveal;
+    coaMat.uniforms.uTime.value = t;
+    frame.material.opacity = reveal * .9;
+    stamp.material.opacity = smooth(.70, .77, p) * (1 - smooth(.93, 1, p));
+    const sPop = 1 + (1 - smooth(.70,.77,p)) * .25;
+    stamp.scale.set(sPop, sPop, 1);
+    coaGroup.rotation.y = Math.sin(t*.3)*.04;
+    coaGroup.position.y = .2 + Math.sin(t*.6)*.05;
+
+    /* finale grid sweep */
+    grid.material.opacity = smooth(.76, .9, p) * .38;
+    grid.position.z = (COA_Z + 6) + Math.sin(t*.15)*1.5;
+
+    /* DOM sync */
+    updateSections();
+
+    useComposer ? composer.render() : renderer.render(scene, camera);
+    checkPerf(dt);
+  }
+
+  document.getElementById('gl').classList.add('on');
+  loop();
+}
+</script>
+
+<noscript>
+  <style>.scene{height:auto !important}.scene .pin{position:relative;min-height:0;padding:14vh 0}.rail,.scroll-hint{display:none}</style>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Request a sample COA. | SMART MD</title><meta name="description" content="Not sure about our quality? We'll send you a lot-specific Certificate of Analysis for any compound — before you spend a dollar. Compare it against your curren"><meta name="author" content="SMART MD"><meta name="robots" content="index, follow"><link rel="canonical" href="https://smartmdpeptides.com/request-coa"><link rel="icon" type="image/x-icon" href="/favicon.ico"><meta property="og:type" content="website"><meta property="og:site_name" content="SMART MD"><meta property="og:title" content="Request a sample COA. | SMART MD"><meta property="og:description" content="Not sure about our quality? We'll send you a lot-specific Certificate of Analysis for any compound — before you spend a dollar. Compare it against your curren"><meta property="og:url" content="https://smartmdpeptides.com/request-coa"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Request a sample COA. | SMART MD"><meta name="twitter:description" content="Not sure about our quality? We'll send you a lot-specific Certificate of Analysis for any compound — before you spend a dollar. Compare it against your curren"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"><link rel="stylesheet" href="/_astro/_slug_.bqQiV3yH.css"></head> <body>  <!--
+  SMART MD Peptides — COA REQUEST page
+  GHL URL slug: /request-coa
+  Purpose: Prospect requests a sample COA before buying → captures lead → builds trust
+  Revenue play: reduces purchase hesitation, captures email for follow-up
+-->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">SMART MD<span class="nav-logo-dot"> ·</span> PEPTIDES</a>
+    <ul class="nav-links">
+      <li><a href="/compounds">Shop</a></li>
+      <li><a href="/verify">Verify COA</a></li>
+      <li><a href="/wholesale">Wholesale</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow animate">BEFORE YOU BUY</span>
+    <h1 class="animate animate-delay-1">Request a sample COA.</h1>
+    <p class="subhead animate animate-delay-2" style="max-width:620px;">
+      Not sure about our quality? We'll send you a lot-specific Certificate of Analysis
+      for any compound — before you spend a dollar. Compare it against your current supplier.
+      The documentation speaks for itself.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:600px;">
+    <div class="card card-pad animate">
+      <h2 style="color:var(--white);margin-bottom:8px;font-size:20px;">Which compound?</h2>
+      <p class="body-sm" style="color:var(--muted);margin-bottom:24px;">
+        Tell us the compound you want to evaluate. We'll email you the current batch's
+        full COA package within 24 hours — HPLC, mass spec, and endotoxin results from
+        all 3 laboratories.
+      </p>
+
+      <form onsubmit="handleCOARequest(event)" novalidate>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--muted);">Your name *</label>
+          <input type="text" name="firstName" required placeholder="First name" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--muted);">Email *</label>
+          <input type="email" name="email" required placeholder="you@example.com" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--muted);">Compound of interest *</label>
+          <input type="text" name="compound" required placeholder="e.g., BPC-157, GLP-1SM, NAD+" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--muted);">Organization (optional)</label>
+          <input type="text" name="clinic" placeholder="Clinic / lab / university name" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+        </div>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true">
+        <button type="submit" class="btn btn-red" style="width:100%;justify-content:center;padding:14px;font-size:15px;">
+          Send Me the COA →
+        </button>
+        <p class="body-xs" style="color:var(--dim);margin-top:12px;text-align:center;">
+          Free. No obligation. We'll email the full 3-lab COA package within 24 hours.
+        </p>
+      </form>
+
+      <div id="coa-success" style="display:none;padding:20px;text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;">✓</div>
+        <h3 style="color:var(--white);">COA request received.</h3>
+        <p style="color:var(--muted);font-size:14px;margin-top:8px;">Check your email within 24 hours. We'll send the full 3-lab COA package for the compound you requested.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;text-align:center;">
+      <p class="body-sm" style="color:var(--muted);">
+        Already have a lot number? <a href="/verify" style="color:#C82028;">Verify it instantly →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+async function handleCOARequest(e) {
+  e.preventDefault();
+  const form = e.target;
+  if (form.website.value) return;
+  const data = {
+    firstName: form.firstName.value.trim(),
+    email: form.email.value.trim(),
+    source: 'coa-request',
+    tags: ['source-smartmdpeptides', 'coa-request', 'product:' + form.compound.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-')],
+    message: 'COA request for: ' + form.compound.value.trim(),
+    clinic: form.clinic?.value?.trim() || '',
+  };
+  try {
+    if (typeof smartSubmit === 'function') await smartSubmit(data);
+  } catch(err) { console.warn('COA request submission error:', err); }
+  form.style.display = 'none';
+  document.getElementById('coa-success').style.display = '';
+}
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-legal">For research use only. Not for human or animal consumption. &copy; 2026 SMART MD Peptides / SMART LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SMART-MD-SCHEMA-INJECTED -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://smartmdpeptides.com/#organization","name":"SMART MD Peptides","alternateName":["SMART MD","SMART MD LLC"],"url":"https://smartmdpeptides.com","logo":"https://smartmdpeptides.com/logo.png","description":"Research-grade peptide compounds with 99.1% HPLC-verified purity, lot-specific COAs from 3 independent U.S. laboratories. For research purposes only.","email":"info@smartmbservices.com","telephone":"+1-251-387-7712","address":{"@type":"PostalAddress","addressLocality":"Anaheim","addressRegion":"CA","postalCode":"92806","addressCountry":"US"},"sameAs":["https://www.instagram.com/smrtnetwork","https://smartmbservices.com"],"foundingDate":"2024","founder":[{"@type":"Person","name":"Moe","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Joe","jobTitle":"Partner"}],"knowsAbout":["Research peptides","BPC-157","TB-500","NAD+","GLP-1 peptides","GLP-1SM","GLP-2TZ","GLP-3 RT","Tesamorelin","Ipamorelin","CJC-1295","Lab-verified peptides","COA verification","Peptide research compliance"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://smartmdpeptides.com/#website","url":"https://smartmdpeptides.com","name":"SMART MD Peptides","publisher":{"@id":"https://smartmdpeptides.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://smartmdpeptides.com/compounds?q={search_term_string}","query-input":"required name=search_term_string"}}</script>  <script src="/js/main.js" defer></script> </body> </html>

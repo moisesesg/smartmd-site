@@ -1,0 +1,447 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Verify Any Batch. Real Lab Data. | SMART MD</title><meta name="description" content="Enter the batch number from your SMART MD product label. Pull the full Certificate of Analysis — HPLC purity, mass spec, and endotoxin results. Free member ac"><meta name="author" content="SMART MD"><meta name="robots" content="index, follow"><link rel="canonical" href="https://smartmdpeptides.com/verify"><link rel="icon" type="image/x-icon" href="/favicon.ico"><meta property="og:type" content="website"><meta property="og:site_name" content="SMART MD"><meta property="og:title" content="Verify Any Batch. Real Lab Data. | SMART MD"><meta property="og:description" content="Enter the batch number from your SMART MD product label. Pull the full Certificate of Analysis — HPLC purity, mass spec, and endotoxin results. Free member ac"><meta property="og:url" content="https://smartmdpeptides.com/verify"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Verify Any Batch. Real Lab Data. | SMART MD"><meta name="twitter:description" content="Enter the batch number from your SMART MD product label. Pull the full Certificate of Analysis — HPLC purity, mass spec, and endotoxin results. Free member ac"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"><link rel="stylesheet" href="/_astro/_slug_.bqQiV3yH.css"></head> <body>  <!--
+  SMART MD Peptides — VERIFY page
+  GHL URL slug: /verify
+  Paste this into: GHL Page Builder → Add Element → Custom Code → Body
+  Requires: GLOBAL-CSS.html in funnel header + GLOBAL-JS.html in funnel footer
+-->
+<div class="disclaimer-bar">
+    <strong>Research Use Only.</strong> Not for human or animal consumption. All products for qualified researchers in controlled laboratory environments.
+  </div>
+
+  <nav>
+    <a href="/" class="nav-logo">SMART MD<span class="nav-logo-dot"> ·</span> PEPTIDES</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="/compounds">Shop <span class="nav-arrow">&#9662;</span></a>
+        <ul class="nav-dropdown">
+          <li><a href="/best-sellers">&#11088; Best Sellers</a></li>
+          <li><a href="/new-arrivals">&#10022; New Arrivals</a></li>
+          <li class="nav-dropdown-sep"></li>
+          <li><a href="/for-him">For Him</a></li>
+          <li><a href="/for-her">For Her</a></li>
+          <li><a href="/wellness">Wellness</a></li>
+          <li class="nav-dropdown-sep"></li>
+          <li><a href="/compounds">All Compounds &#8594;</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="/compounds">Categories <span class="nav-arrow">&#9662;</span></a>
+        <ul class="nav-dropdown">
+          <li><a href="/recovery">Recovery &amp; Repair</a></li>
+          <li><a href="/compounds#performance">Performance &amp; Strength</a></li>
+          <li><a href="/metabolic">Fat Loss &amp; Metabolic</a></li>
+          <li><a href="/wellness">Longevity &amp; Skin</a></li>
+          <li><a href="/compounds#cognitive">Cognitive &amp; Mood</a></li>
+        </ul>
+      </li>
+      <li><a href="/learn">Learn</a></li>
+      <li><a href="/quality">Quality</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/certified">Certified</a></li>
+    <li class="nav-cta"><a href="/wholesale">Wholesale &#8594;</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <div style="background:var(--ink2);border-bottom:1px solid var(--faint);padding:56px var(--gap) 48px;border-top:3px solid var(--red)">
+    <div class="wrap">
+      <span class="overline">Batch Verification</span>
+      <h1 class="d2" style="margin-bottom:16px">Verify Any Batch.<br><span class="text-red">Real Lab Data.</span></h1>
+      <p class="lead" style="max-width:560px">Enter the batch number from your SMART MD product label. Pull the full Certificate of Analysis — HPLC purity, mass spec, and endotoxin results. Free member access included.</p>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <section class="section">
+    <div class="wrap vf-search-wrap">
+      <label style="display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Batch Number Lookup</label>
+      <div class="vf-search-row">
+        <input class="vf-search-input" id="vfInput" type="text" placeholder="e.g. SMD-BPC-2601A" maxlength="32"
+          oninput="this.value=this.value.toUpperCase()"
+          onkeydown="if(event.key==='Enter')vfSearch()" />
+        <button class="vf-search-btn" onclick="vfSearch()">Pull COA</button>
+      </div>
+      <div class="vf-demo-chips">
+        <span style="font-size:11px;color:var(--dim)">Try demo:</span>
+        <span class="vf-chip" onclick="vfDemo('SMD-BPC-2601A')">SMD-BPC-2601A</span>
+        <span class="vf-chip" onclick="vfDemo('SMD-WLV-2602B')">SMD-WLV-2602B</span>
+        <span class="vf-chip" onclick="vfDemo('SMD-TRZ-2601C')">SMD-TRZ-2601C</span>
+      </div>
+
+      <!-- RESULT AREA -->
+      <div class="vf-result-box" id="vfResult">
+
+        <!-- FREE TIER: header + blurred rows -->
+        <div id="vfFree">
+          <div class="vf-result-header">
+            <div>
+              <div class="vf-compound" id="vfCompound">—</div>
+              <div class="vf-batch-label" id="vfBatchLabel">—</div>
+            </div>
+            <div class="vf-pass-badge"><div class="vf-pass-dot"></div>ALL TESTS PASS</div>
+          </div>
+          <div class="vf-rows">
+            <div class="vf-row">
+              <div class="vf-row-label">Compound</div>
+              <div class="vf-row-val" id="vfFreeCompound">—</div>
+              <div class="vf-row-status">✓ Confirmed</div>
+            </div>
+            <div class="vf-row">
+              <div class="vf-row-label">Release Date</div>
+              <div class="vf-row-val" id="vfFreeDate">—</div>
+              <div class="vf-row-status">✓ Current</div>
+            </div>
+            <div class="vf-row">
+              <div class="vf-row-label">HPLC Purity</div>
+              <div class="vf-row-val blurred" id="vfFreePurity">99.1%</div>
+              <div class="vf-lock">&#128274; Members</div>
+            </div>
+            <div class="vf-row">
+              <div class="vf-row-label">Mass Spec (MW)</div>
+              <div class="vf-row-val blurred" id="vfFreeMass">1419.5 Da</div>
+              <div class="vf-lock">&#128274; Members</div>
+            </div>
+            <div class="vf-row">
+              <div class="vf-row-label">Endotoxin</div>
+              <div class="vf-row-val blurred" id="vfFreeEndo">&lt;0.8 EU/mg</div>
+              <div class="vf-lock">&#128274; Members</div>
+            </div>
+          </div>
+
+          <!-- GATE -->
+          <div class="vf-gate" id="vfGate">
+            <div class="vf-gate-hd">
+              <div class="vf-gate-title">Create a Free Account to Unlock Full COA</div>
+              <div class="vf-gate-sub">Free members get complete access — HPLC purity, mass spec, and endotoxin data for every batch.<br>Upgrade for the full research toolkit.</div>
+            </div>
+
+            <div class="vf-plans">
+              <!-- FREE -->
+              <div class="vf-plan">
+                <div class="vf-plan-name">CORE</div>
+                <div class="vf-plan-price">$0 <span>forever free</span></div>
+                <div class="vf-plan-desc">Full COA access, product catalog, research updates. No credit card.</div>
+                <ul class="vf-plan-features">
+                  <li>Full COA verification access</li>
+                  <li>Complete product catalog</li>
+                  <li>Research updates &amp; alerts</li>
+                  <li class="off">Protocol research library</li>
+                  <li class="off">Stack builder &amp; dosing tools</li>
+                  <li class="off">Compound credits</li>
+                </ul>
+                <button class="vf-plan-btn vf-btn-free" onclick="vfShowSignup()">Get Started Free</button>
+              </div>
+
+              <!-- PRO -->
+              <div class="vf-plan" style="border-top:3px solid var(--red)">
+                <div class="vf-plan-popular">Most Popular</div>
+                <div class="vf-plan-name">SIGNAL</div>
+                <div class="vf-plan-price">$98 <span>/ month</span></div>
+                <div class="vf-plan-desc">Full research toolkit — protocol library, stack builder, research scheduling alerts.</div>
+                <ul class="vf-plan-features">
+                  <li>Everything in Free</li>
+                  <li>Protocol research library</li>
+                  <li>Peptide stack builder</li>
+                  <li>Smart research scheduling alerts</li>
+                  <li>Priority alerts &amp; early access</li>
+                  <li class="off">Monthly compound credits</li>
+                </ul>
+                <a href="https://buy.stripe.com/00w00iePe5GN1ex9I22Ry03" class="vf-plan-btn vf-btn-pro" target="_blank">Start SIGNAL — $98/mo</a>
+              </div>
+
+              <!-- ELITE -->
+              <div class="vf-plan">
+                <div class="vf-plan-name">APEX</div>
+                <div class="vf-plan-price">$398 <span>/ month</span></div>
+                <div class="vf-plan-desc">Maximum access — compound credits, expert consults, wholesale pricing.</div>
+                <ul class="vf-plan-features">
+                  <li>Everything in Pro</li>
+                  <li>$50/mo compound credits</li>
+                  <li>Monthly expert consult (30 min)</li>
+                  <li>Personalized protocols</li>
+                  <li>Priority shipping</li>
+                  <li>Wholesale pricing access</li>
+                </ul>
+                <a href="https://buy.stripe.com/cNiaEW9uU4CJ4qJf2m2Ry04" class="vf-plan-btn vf-btn-elite" target="_blank">Go APEX — $398/mo</a>
+              </div>
+            </div>
+
+            <!-- FREE SIGNUP FORM -->
+            <div class="vf-signup" id="vfSignup" style="display:none">
+              <div class="vf-signup-title">Create Your Free Account</div>
+              <div class="vf-signup-sub">Instant access. No credit card required.</div>
+              <form onsubmit="vfSubmit(event)">
+                <div class="vf-form-row">
+                  <input class="vf-input" name="firstName" placeholder="First name" required />
+                  <input class="vf-input" name="email" type="email" placeholder="Email address" required />
+                </div>
+                <select class="vf-input" name="accountType" style="margin-bottom:10px">
+                  <option value="">Account type (optional)</option>
+                  <option value="researcher">Individual Researcher</option>
+                  <option value="clinic">Clinic / Med Spa</option>
+                  <option value="practitioner">Licensed Practitioner</option>
+                  <option value="biohacker">Biohacker / Enthusiast</option>
+                </select>
+                <button type="submit" class="vf-submit" id="vfSubmitBtn">Unlock Full COA — Free</button>
+                <div class="vf-terms">By signing up you agree to research-use-only terms. No medical advice provided.</div>
+              </form>
+            </div>
+
+            <!-- WHOLESALE BAR -->
+            <div class="vf-ws-bar">
+              <div class="vf-ws-text">
+                <strong>Wholesale Account?</strong>
+                Wholesale clients get full COA access included. Contact our team to activate.
+              </div>
+              <a href="mailto:info@smartmbservices.com?subject=Wholesale+COA+Access" class="btn btn-ghost-red btn-sm" style="white-space:nowrap">Contact our team</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNLOCKED FULL COA -->
+        <div class="vf-coa" id="vfCOA">
+          <div class="vf-unlocked-badge">
+            <span style="color:#22c55e;font-size:18px">✓</span>
+            <span style="font-size:14px;color:#22c55e;font-weight:600">COA access unlocked — full lab data below</span>
+          </div>
+
+          <!-- HPLC -->
+          <div class="vf-coa-section">
+            <div class="vf-coa-tag">Lab 1 — HPLC</div>
+            <div class="vf-coa-title">Purity Analysis</div>
+            <div class="vf-purity-wrap">
+              <div class="vf-purity-labels">
+                <span>Purity</span>
+                <span id="vfPurityPct" style="color:#22c55e;font-weight:700">—</span>
+              </div>
+              <div class="vf-purity-track"><div class="vf-purity-fill" id="vfPurityBar"></div></div>
+            </div>
+            <table class="vf-coa-table" style="margin-top:16px">
+              <thead><tr><th>Parameter</th><th>Result</th><th>Spec</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Compound Identity</td><td id="vfCoaCompound" style="font-weight:600;color:var(--white)">—</td><td style="color:var(--dim)">Target sequence</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>HPLC Purity</td><td id="vfCoaPurity" style="font-weight:700;color:#22c55e">—</td><td style="color:var(--dim)">≥ 98.0%</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>Impurity Profile</td><td style="color:var(--white)">No significant impurities</td><td style="color:var(--dim)">&lt; 0.5% each</td><td class="vf-coa-pass">✓ PASS</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:12px;color:var(--dim);margin-top:8px">Lab: Nexagen Labs, Houston TX</div>
+          </div>
+
+          <!-- MASS SPEC -->
+          <div class="vf-coa-section">
+            <div class="vf-coa-tag">Lab 2 — Mass Spec</div>
+            <div class="vf-coa-title">Structure Verification</div>
+            <table class="vf-coa-table">
+              <thead><tr><th>Parameter</th><th>Result</th><th>Reference</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Molecular Weight</td><td id="vfCoaMass" style="font-weight:700;color:var(--white);font-family:monospace">—</td><td id="vfCoaMassRef" style="color:var(--dim)">—</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>Sequence Integrity</td><td style="color:var(--white)">Confirmed</td><td style="color:var(--dim)">Full sequence</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>Structural Analogues</td><td style="color:var(--white)">None detected</td><td style="color:var(--dim)">Not present</td><td class="vf-coa-pass">✓ PASS</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:12px;color:var(--dim);margin-top:8px">Lab: SpectraLab, San Diego CA</div>
+          </div>
+
+          <!-- ENDOTOXIN -->
+          <div class="vf-coa-section">
+            <div class="vf-coa-tag">Lab 3 — Endotoxin</div>
+            <div class="vf-coa-title">Safety Screening</div>
+            <table class="vf-coa-table">
+              <thead><tr><th>Parameter</th><th>Result</th><th>Max Allowed</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>LAL Endotoxin</td><td id="vfCoaEndo" style="font-weight:700;color:#22c55e;font-family:monospace">—</td><td style="color:var(--dim)">&lt; 5.0 EU/mg</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>Microbial Contamination</td><td style="color:var(--white)">None detected</td><td style="color:var(--dim)">Not present</td><td class="vf-coa-pass">✓ PASS</td></tr>
+                <tr><td>Bioburden</td><td style="color:var(--white)">&lt; 10 CFU/g</td><td style="color:var(--dim)">&lt; 100 CFU/g</td><td class="vf-coa-pass">✓ PASS</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:12px;color:var(--dim);margin-top:8px">Lab: BioCert Analytics, Boston MA</div>
+          </div>
+
+          <div class="vf-coa-actions">
+            <button class="btn btn-red" onclick="vfDownload()">&#8681; Download COA PDF</button>
+            <a href="/wholesale" class="btn btn-ghost">Apply for Wholesale</a>
+          </div>
+        </div>
+
+      </div><!-- end vf-result-box -->
+    </div>
+  </section>
+
+  <!-- What's in a COA -->
+  <section class="section section-dark">
+    <div class="wrap">
+      <div class="section-hd center">
+        <span class="overline">Certificate of Analysis</span>
+        <h2 class="d3">What's in Every SMART MD COA</h2>
+        <p class="lead" style="max-width:560px;margin:16px auto 0">Three labs. Three independent reports. Unified into a single COA for every batch shipped.</p>
+      </div>
+      <div class="grid-3" style="margin-top:48px">
+        <div class="card card-pad card-accent">
+          <div class="label" style="margin-bottom:12px">Lab 1 — HPLC</div>
+          <h3 style="font-family:var(--font-d);font-size:24px;margin-bottom:12px">Purity Analysis</h3>
+          <ul class="compound-specs">
+            <li>Compound identity confirmed</li>
+            <li>Purity % documented</li>
+            <li>Impurity profile included</li>
+            <li>Minimum pass: 98%</li>
+          </ul>
+        </div>
+        <div class="card card-pad card-accent">
+          <div class="label" style="margin-bottom:12px">Lab 2 — Mass Spec</div>
+          <h3 style="font-family:var(--font-d);font-size:24px;margin-bottom:12px">Structure Verification</h3>
+          <ul class="compound-specs">
+            <li>Molecular weight confirmed</li>
+            <li>Sequence integrity verified</li>
+            <li>Analogue contamination excluded</li>
+            <li>Oxidation markers checked</li>
+          </ul>
+        </div>
+        <div class="card card-pad card-accent">
+          <div class="label" style="margin-bottom:12px">Lab 3 — Endotoxin</div>
+          <h3 style="font-family:var(--font-d);font-size:24px;margin-bottom:12px">Safety Screening</h3>
+          <ul class="compound-specs">
+            <li>LAL endotoxin assay</li>
+            <li>Microbial contamination screen</li>
+            <li>Bioburden report</li>
+            <li>Maximum pass: &lt;5 EU/mg</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div style="background:var(--ink2);border-top:1px solid var(--faint);padding:64px var(--gap)">
+    <div class="wrap text-center">
+      <h2 class="d3" style="margin-bottom:16px">Every Order Includes<br>the <span class="text-red">Full COA.</span></h2>
+      <p class="lead" style="max-width:480px;margin:0 auto 36px">Wholesale accounts receive the 3-lab COA with every shipment — no requests, no delays.</p>
+      <a href="/wholesale" class="btn btn-red btn-lg">Apply for Wholesale</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">SMART MD <span>PEPTIDES</span></a>
+          <p>3 independent labs. Every batch. No exceptions.</p>
+        </div>
+                <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="/compounds">All Products</a></li>
+            <li><a href="/best-sellers">Best Sellers</a></li>
+            <li><a href="/new-arrivals">New Arrivals</a></li>
+            <li><a href="/for-him">For Him</a></li>
+            <li><a href="/for-her">For Her</a></li>
+            <li><a href="/wellness">Wellness</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/verify">Verify a Batch</a></li>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/quality">Quality &amp; Testing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/wholesale">Wholesale</a></li>
+            <li><a href="/affiliates">Affiliates</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About SMART MD</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+            <li><a href="/terms">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="mailto:info@smartmbservices.com">info@smartmbservices.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">For research use only. Not for human or animal consumption. Not evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease. &copy; 2026 SMART MD Peptides / SMART LLC.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+  var vfBatches = {
+    'SMD-BPC-2601A': { compound:'BPC-157', date:'January 14, 2026', purity:'99.1%', purityNum:99.1, mass:'1419.53 Da', massRef:'1419.5 ± 0.5 Da', endo:'< 0.7 EU/mg' },
+    'SMD-WLV-2602B': { compound:'Wolverine Blend (BPC-157 + TB-500)', date:'February 3, 2026', purity:'99.2%', purityNum:99.2, mass:'4963.44 Da', massRef:'4963.4 ± 1.0 Da', endo:'< 0.8 EU/mg' },
+    'SMD-TRZ-2601C': { compound:'GLP-2TZ', date:'January 22, 2026', purity:'99.4%', purityNum:99.4, mass:'4813.46 Da', massRef:'4813.4 ± 1.0 Da', endo:'< 0.6 EU/mg' }
+  };
+  var vfCurrent = null, vfUnlocked = false;
+
+  function vfDemo(b){ document.getElementById('vfInput').value=b; vfSearch(); }
+
+  function vfSearch(){
+    var input = document.getElementById('vfInput').value.trim().toUpperCase();
+    if(!input) return;
+    var box = document.getElementById('vfResult');
+    var data = vfBatches[input];
+    box.style.display = 'block';
+    if(!data){
+      document.getElementById('vfFree').innerHTML =
+        '<div class="card card-pad" style="text-align:center;margin-top:0"><div style="font-size:32px;margin-bottom:12px">&#128269;</div>' +
+        '<div style="font-family:var(--font-d);font-size:24px;color:var(--white);margin-bottom:8px">Batch Not Found</div>' +
+        '<p style="color:var(--dim);font-size:14px;margin-bottom:20px">Batch <code style="color:var(--red)">' + input + '</code> is not in our demo database. <a href="#" onclick="vfShowSignup();return false;" style="color:var(--red)">Create a free account</a> for live batch verification.</p>' +
+        '<a href="mailto:info@smartmbservices.com?subject=COA%20Request%20%E2%80%94%20' + encodeURIComponent(input) + '" class="btn btn-red btn-sm">Request COA by Email</a></div>';
+      box.scrollIntoView({behavior:'smooth',block:'nearest'});
+      return;
+    }
+    vfCurrent = data;
+    document.getElementById('vfCompound').textContent = data.compound;
+    document.getElementById('vfBatchLabel').textContent = 'Batch: ' + input + '  ·  Released: ' + data.date;
+    document.getElementById('vfFreeCompound').textContent = data.compound;
+    document.getElementById('vfFreeDate').textContent = data.date;
+    document.getElementById('vfFreePurity').textContent = data.purity;
+    document.getElementById('vfFreeMass').textContent = data.mass;
+    document.getElementById('vfFreeEndo').textContent = data.endo;
+    if(vfUnlocked) vfPopulate(data);
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function vfShowSignup(){
+    var s = document.getElementById('vfSignup');
+    s.style.display = s.style.display==='none'?'block':'none';
+    if(s.style.display==='block') s.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  async function vfSubmit(e){
+    e.preventDefault();
+    var form = e.target;
+    var btn = document.getElementById('vfSubmitBtn');
+    btn.textContent = 'Creating account…'; btn.disabled = true;
+    try {
+      await smartSubmit({ firstName:form.firstName.value, email:form.email.value, tags:['source-smartmdpeptides','coa-member','verify-signup'] });
+    } catch(e){ console.warn('Submission error, unlocking locally'); }
+    vfUnlocked = true;
+    document.getElementById('vfGate').style.display = 'none';
+    document.querySelectorAll('.blurred').forEach(function(el){ el.classList.remove('blurred'); });
+    document.querySelectorAll('.vf-lock').forEach(function(el){ el.innerHTML='<span style="color:#22c55e">✓ Verified</span>'; });
+    if(vfCurrent) vfPopulate(vfCurrent);
+  }
+
+  function vfPopulate(d){
+    document.getElementById('vfCOA').style.display = 'block';
+    document.getElementById('vfCoaCompound').textContent = d.compound;
+    document.getElementById('vfCoaPurity').textContent = d.purity;
+    document.getElementById('vfPurityPct').textContent = d.purity;
+    document.getElementById('vfCoaMass').textContent = d.mass;
+    document.getElementById('vfCoaMassRef').textContent = d.massRef;
+    document.getElementById('vfCoaEndo').textContent = d.endo;
+    setTimeout(function(){ document.getElementById('vfPurityBar').style.width = d.purityNum + '%'; }, 200);
+    document.getElementById('vfCOA').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function vfDownload(){
+    alert('COA PDF download will be available once batch database is live. Contact info@smartmbservices.com for immediate COA delivery.');
+  }
+  </script>
+
+<!-- SMART-MD-SCHEMA-INJECTED -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://smartmdpeptides.com/#organization","name":"SMART MD Peptides","alternateName":["SMART MD","SMART MD LLC"],"url":"https://smartmdpeptides.com","logo":"https://smartmdpeptides.com/logo.png","description":"Research-grade peptide compounds with 99.1% HPLC-verified purity, lot-specific COAs from 3 independent U.S. laboratories. For research purposes only.","email":"info@smartmbservices.com","telephone":"+1-251-387-7712","address":{"@type":"PostalAddress","addressLocality":"Anaheim","addressRegion":"CA","postalCode":"92806","addressCountry":"US"},"sameAs":["https://www.instagram.com/smrtnetwork","https://smartmbservices.com"],"foundingDate":"2024","founder":[{"@type":"Person","name":"Moe","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Joe","jobTitle":"Partner"}],"knowsAbout":["Research peptides","BPC-157","TB-500","NAD+","GLP-1 peptides","GLP-1SM","GLP-2TZ","GLP-3 RT","Tesamorelin","Ipamorelin","CJC-1295","Lab-verified peptides","COA verification","Peptide research compliance"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://smartmdpeptides.com/#website","url":"https://smartmdpeptides.com","name":"SMART MD Peptides","publisher":{"@id":"https://smartmdpeptides.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://smartmdpeptides.com/compounds?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://smartmdpeptides.com/verify","name":"Verify COA — SMART MD Peptides","description":"Public lookup for lot-specific Certificates of Analysis. Every batch independently verified by 3 U.S. laboratories."}</script>  <script src="/js/main.js" defer></script> </body> </html>

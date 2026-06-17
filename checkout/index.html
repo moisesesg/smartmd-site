@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Complete your order. | SMART MD</title><meta name="description" content="SMART MD — research-grade compounds verified by 3 independent U.S. labs. COA on every batch. Proof over promises. For research use only."><meta name="author" content="SMART MD"><meta name="robots" content="index, follow"><link rel="canonical" href="https://smartmdpeptides.com/checkout"><link rel="icon" type="image/x-icon" href="/favicon.ico"><meta property="og:type" content="website"><meta property="og:site_name" content="SMART MD"><meta property="og:title" content="Complete your order. | SMART MD"><meta property="og:description" content="SMART MD — research-grade compounds verified by 3 independent U.S. labs. COA on every batch. Proof over promises. For research use only."><meta property="og:url" content="https://smartmdpeptides.com/checkout"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Complete your order. | SMART MD"><meta name="twitter:description" content="SMART MD — research-grade compounds verified by 3 independent U.S. labs. COA on every batch. Proof over promises. For research use only."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"><link rel="stylesheet" href="/_astro/_slug_.bqQiV3yH.css"></head> <body>  <!--
+  SMART MD Peptides — CHECKOUT page
+  GHL URL slug: /checkout
+  Query params: ?product={id}&name={name}&price={amount}
+  Collects customer info → POST /api/create-invoice → redirects to GHL invoice payment URL
+-->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">SMART MD<span class="nav-logo-dot"> ·</span> PEPTIDES</a>
+    <ul class="nav-links">
+      <li><a href="/compounds">Continue Shopping</a></li>
+      <li><a href="/verify">Verify COA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:80px;">
+  <div class="container" style="max-width:860px;">
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;">
+
+      <!-- LEFT: Form -->
+      <div>
+        <span class="overline">Secure Checkout</span>
+        <h1 class="d3" style="margin-top:8px;">Complete your order.</h1>
+        <p class="body-sm" style="color:var(--muted);margin-top:8px;margin-bottom:32px;">
+          We collect your info here. Payment happens on our secure GHL-hosted payment page (Stripe-backed).
+        </p>
+
+        <form id="checkoutForm" onsubmit="return handleCheckout(event)" novalidate>
+          <input type="hidden" name="productId" id="productId">
+          <input type="hidden" name="productName" id="productName">
+          <input type="hidden" name="amount" id="amount">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true">
+
+          <h3 style="color:var(--white);margin-bottom:16px;font-size:18px;">Contact</h3>
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+            <div><label style="font-size:12px;color:var(--muted);">First name *</label>
+              <input type="text" name="firstName" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;"></div>
+            <div><label style="font-size:12px;color:var(--muted);">Last name</label>
+              <input type="text" name="lastName" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;"></div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="font-size:12px;color:var(--muted);">Email *</label>
+            <input type="email" name="email" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+          </div>
+          <div style="margin-bottom:32px;">
+            <label style="font-size:12px;color:var(--muted);">Phone</label>
+            <input type="tel" name="phone" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+          </div>
+
+          <h3 style="color:var(--white);margin-bottom:16px;font-size:18px;">Shipping address</h3>
+          <div style="margin-bottom:16px;">
+            <label style="font-size:12px;color:var(--muted);">Street address *</label>
+            <input type="text" name="address" required placeholder="123 Main St" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;">
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-bottom:24px;">
+            <div><label style="font-size:12px;color:var(--muted);">City *</label>
+              <input type="text" name="city" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;"></div>
+            <div><label style="font-size:12px;color:var(--muted);">State *</label>
+              <input type="text" name="state" required maxlength="2" placeholder="CA" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;text-transform:uppercase;"></div>
+            <div><label style="font-size:12px;color:var(--muted);">ZIP *</label>
+              <input type="text" name="postalCode" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;"></div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-red" style="width:100%;justify-content:center;padding:16px;font-size:15px;">
+            <span class="btn-text">Continue to Payment →</span>
+            <span class="spinner" style="display:none;">Processing...</span>
+          </button>
+
+          <p class="body-xs" style="color:var(--dim);margin-top:16px;text-align:center;">
+            You'll be redirected to a secure payment page. Your card info never touches our servers.
+          </p>
+        </form>
+
+        <div id="errorBox" style="display:none;margin-top:20px;padding:14px;background:rgba(200,32,40,0.08);border:1px solid rgba(200,32,40,0.3);border-radius:8px;color:#ff9999;font-size:13px;"></div>
+      </div>
+
+      <!-- RIGHT: Order summary -->
+      <div style="position:sticky;top:100px;">
+        <div class="card card-pad" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+          <h3 style="color:var(--white);font-size:14px;letter-spacing:2px;margin-bottom:16px;">ORDER SUMMARY</h3>
+          <div id="summary" style="color:var(--muted);font-size:14px;">Loading product...</div>
+          <div style="height:1px;background:rgba(255,255,255,0.08);margin:20px 0;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="color:var(--muted);font-size:13px;">Total</span>
+            <span id="total" style="color:var(--white);font-size:24px;font-weight:700;">—</span>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:rgba(200,32,40,0.04);border-radius:6px;font-size:11px;color:var(--muted);line-height:1.6;">
+            ✓ 3-Lab COA verified · Lot-specific documentation ships with every order<br>
+            ✓ 1-2 business day fulfillment<br>
+            ✓ Research use only — not for human consumption
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Parse ?product=X&name=Y&price=Z from URL
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('product') || '';
+  const productName = decodeURIComponent(params.get('name') || 'Research Compound');
+  const price = parseFloat(params.get('price') || '0');
+  const qty = parseInt(params.get('qty') || '1', 10);
+
+  document.getElementById('productId').value = productId;
+  document.getElementById('productName').value = productName;
+  document.getElementById('amount').value = price;
+
+  // Render summary
+  if (productId && price > 0) {
+    document.getElementById('summary').innerHTML =
+      `<div style="display:flex;justify-content:space-between;align-items:flex-start;">` +
+      `<div><div style="color:#fff;font-weight:600;font-size:14px;margin-bottom:4px;">${productName}</div>` +
+      `<div style="color:var(--dim);font-size:12px;">Qty ${qty} · Research use only</div></div>` +
+      `<div style="color:#fff;font-weight:600;font-size:14px;">$${(price * qty).toFixed(2)}</div>` +
+      `</div>`;
+    document.getElementById('total').textContent = '$' + (price * qty).toFixed(2);
+  } else {
+    document.getElementById('summary').innerHTML = '<p style="color:#ff9999;">No product selected. <a href="/compounds" style="color:#C82028;">Browse compounds →</a></p>';
+    document.getElementById('submitBtn').disabled = true;
+  }
+
+  async function handleCheckout(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+    const errorBox = document.getElementById('errorBox');
+    errorBox.style.display = 'none';
+    btn.disabled = true;
+    btn.querySelector('.btn-text').style.display = 'none';
+    btn.querySelector('.spinner').style.display = '';
+
+    const data = {
+      firstName: form.firstName.value.trim(),
+      lastName: form.lastName.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      address: form.address.value.trim(),
+      city: form.city.value.trim(),
+      state: form.state.value.trim().toUpperCase(),
+      postalCode: form.postalCode.value.trim(),
+      productId,
+      productName,
+      amount: price,
+      quantity: qty,
+      website: form.website.value,
+    };
+
+    try {
+      // Hits the Express server — URL set via SMARTMD_API_BASE below
+      const apiBase = window.SMARTMD_API_BASE || 'https://smart-md-api.up.railway.app';
+      const res = await fetch(apiBase + '/api/create-invoice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Checkout failed');
+      if (!json.paymentUrl) throw new Error('No payment URL returned');
+
+      // Redirect to GHL invoice payment page
+      window.location.href = json.paymentUrl;
+    } catch (err) {
+      errorBox.textContent = 'Error: ' + err.message + ' · Call 251-387-7712 and we\'ll complete your order by phone.';
+      errorBox.style.display = '';
+      btn.disabled = false;
+      btn.querySelector('.btn-text').style.display = '';
+      btn.querySelector('.spinner').style.display = 'none';
+    }
+    return false;
+  }
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-legal">For research use only. Not for human or animal consumption. &copy; 2026 SMART MD Peptides / SMART LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SMART-MD-SCHEMA-INJECTED -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://smartmdpeptides.com/#organization","name":"SMART MD Peptides","alternateName":["SMART MD","SMART MD LLC"],"url":"https://smartmdpeptides.com","logo":"https://smartmdpeptides.com/logo.png","description":"Research-grade peptide compounds with 99.1% HPLC-verified purity, lot-specific COAs from 3 independent U.S. laboratories. For research purposes only.","email":"info@smartmbservices.com","telephone":"+1-251-387-7712","address":{"@type":"PostalAddress","addressLocality":"Anaheim","addressRegion":"CA","postalCode":"92806","addressCountry":"US"},"sameAs":["https://www.instagram.com/smrtnetwork","https://smartmbservices.com"],"foundingDate":"2024","founder":[{"@type":"Person","name":"Moe","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Joe","jobTitle":"Partner"}],"knowsAbout":["Research peptides","BPC-157","TB-500","NAD+","GLP-1 peptides","GLP-1SM","GLP-2TZ","GLP-3 RT","Tesamorelin","Ipamorelin","CJC-1295","Lab-verified peptides","COA verification","Peptide research compliance"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://smartmdpeptides.com/#website","url":"https://smartmdpeptides.com","name":"SMART MD Peptides","publisher":{"@id":"https://smartmdpeptides.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://smartmdpeptides.com/compounds?q={search_term_string}","query-input":"required name=search_term_string"}}</script>  <script src="/js/main.js" defer></script> </body> </html>

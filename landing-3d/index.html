@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RESEARCH PEPTIDES DONE RIGHT | SMART MD</title><meta name="description" content="5,000+ researchers trust SMART MD. HPLC + mass spec + endotoxin testing on every compound. 131 verified peptides. No shortcuts."><meta name="author" content="SMART MD"><meta name="robots" content="index, follow"><link rel="canonical" href="https://smartmdpeptides.com/landing-3d"><link rel="icon" type="image/x-icon" href="/favicon.ico"><meta property="og:type" content="website"><meta property="og:site_name" content="SMART MD"><meta property="og:title" content="RESEARCH PEPTIDES DONE RIGHT | SMART MD"><meta property="og:description" content="5,000+ researchers trust SMART MD. HPLC + mass spec + endotoxin testing on every compound. 131 verified peptides. No shortcuts."><meta property="og:url" content="https://smartmdpeptides.com/landing-3d"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="RESEARCH PEPTIDES DONE RIGHT | SMART MD"><meta name="twitter:description" content="5,000+ researchers trust SMART MD. HPLC + mass spec + endotoxin testing on every compound. 131 verified peptides. No shortcuts."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"><link rel="stylesheet" href="/_astro/_slug_.bqQiV3yH.css"></head> <body>  <!--
+  SMART MD PEPTIDES — 3D Landing Page
+  Paste this ENTIRE block into GHL Page Builder → Custom Code element
+  No external dependencies except Google Fonts + Three.js CDN (auto-loads)
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<div id="smp-lp">
+
+<!-- ═══════════════════════════════════════════════════════════
+     STYLES
+════════════════════════════════════════════════════════════ -->
+<style>
+#smp-lp{--red:#C82028;--red2:#E02830;--red-glow:rgba(200,32,40,0.18);--ink:#04040A;--ink2:#07070F;--ink3:#0D0D1A;--card:#111120;--border:rgba(255,255,255,0.07);--border2:rgba(200,32,40,0.25);--text:#E0E0F0;--muted:#666;--dim:#999;--white:#fff;--gold:#F5C518;font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#smp-lp *,#smp-lp *::before,#smp-lp *::after{box-sizing:border-box;margin:0;padding:0}
+#smp-lp a{color:inherit;text-decoration:none}
+#smp-lp img{max-width:100%}
+
+/* ── HERO ───────────────────────────────────────────────── */
+#smp-lp .hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,32,40,0.12),transparent)}
+#smp-lp #smpCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+#smp-lp .hero-inner{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:900px;margin:0 auto}
+#smp-lp .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);background:rgba(200,32,40,0.08);padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:28px;backdrop-filter:blur(12px);transform:translateZ(0)}
+#smp-lp .hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--red2);animation:smp-pulse 1.6s infinite}
+#smp-lp .hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,120px);line-height:.92;letter-spacing:.02em;color:var(--white);margin-bottom:12px;text-shadow:0 0 80px rgba(200,32,40,0.3)}
+#smp-lp .hero-h1 em{color:var(--red2);font-style:normal}
+#smp-lp .hero-sub{font-size:clamp(15px,2vw,18px);color:var(--dim);line-height:1.65;max-width:520px;margin:0 auto 40px}
+#smp-lp .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+#smp-lp .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:14px 32px;border-radius:6px;font-weight:600;font-size:15px;letter-spacing:.04em;transition:all .2s;box-shadow:0 0 30px rgba(200,32,40,0.35);border:none;cursor:pointer}
+#smp-lp .btn-primary:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 0 50px rgba(200,32,40,0.5)}
+#smp-lp .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--text);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px;letter-spacing:.04em;transition:all .2s;background:rgba(255,255,255,0.03);backdrop-filter:blur(8px);cursor:pointer}
+#smp-lp .btn-ghost:hover{border-color:var(--red);color:var(--red);background:rgba(200,32,40,0.06)}
+#smp-lp .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#smp-lp .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--red),transparent);animation:smp-scrollline 1.8s ease-in-out infinite}
+
+/* ── STATS BAR ─────────────────────────────────────────── */
+#smp-lp .stats-bar{background:linear-gradient(90deg,var(--ink2),var(--ink3),var(--ink2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 20px;display:flex;justify-content:center;gap:clamp(32px,6vw,80px);flex-wrap:wrap}
+#smp-lp .stat{text-align:center}
+#smp-lp .stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,48px);color:var(--white);line-height:1}
+#smp-lp .stat-num span{color:var(--red2)}
+#smp-lp .stat-label{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+/* ── SECTION COMMON ────────────────────────────────────── */
+#smp-lp .section{padding:80px 20px}
+#smp-lp .wrap{max-width:1140px;margin:0 auto}
+#smp-lp .section-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:12px}
+#smp-lp .section-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,64px);color:var(--white);line-height:1;margin-bottom:14px}
+#smp-lp .section-sub{font-size:16px;color:var(--dim);max-width:520px;line-height:1.7}
+
+/* ── TABS ──────────────────────────────────────────────── */
+#smp-lp .tab-nav{display:flex;gap:4px;margin-bottom:40px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:5px;flex-wrap:wrap}
+#smp-lp .tab-btn{padding:10px 22px;border-radius:7px;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .22s;flex:1;min-width:100px;text-align:center}
+#smp-lp .tab-btn:hover{color:var(--text);background:rgba(255,255,255,0.04)}
+#smp-lp .tab-btn.active{background:var(--red);color:#fff;box-shadow:0 0 20px rgba(200,32,40,0.35)}
+#smp-lp .tab-pane{display:none}
+#smp-lp .tab-pane.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;animation:smp-fadein .3s ease}
+
+/* ── PRODUCT CARD ──────────────────────────────────────── */
+#smp-lp .pcard{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transform-style:preserve-3d;transition:transform .08s,box-shadow .2s;will-change:transform}
+#smp-lp .pcard:hover{box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(200,32,40,0.2)}
+#smp-lp .pcard-shine{position:absolute;inset:0;border-radius:14px;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,0.04),transparent 60%);z-index:1}
+#smp-lp .pcard-top{padding:28px 24px 20px;position:relative;z-index:2}
+#smp-lp .pcard-badge{display:inline-block;padding:4px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+#smp-lp .badge-hot{background:rgba(200,32,40,0.15);color:var(--red2);border:1px solid rgba(200,32,40,0.3)}
+#smp-lp .badge-new{background:rgba(245,197,24,0.1);color:var(--gold);border:1px solid rgba(245,197,24,0.25)}
+#smp-lp .badge-pop{background:rgba(100,200,255,0.08);color:#7DD8FF;border:1px solid rgba(100,200,255,0.2)}
+#smp-lp .badge-top{background:rgba(180,255,100,0.08);color:#A8FF6E;border:1px solid rgba(180,255,100,0.2)}
+#smp-lp .pcard-name{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--white);letter-spacing:.04em;margin-bottom:6px}
+#smp-lp .pcard-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+#smp-lp .pcard-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+#smp-lp .ptag{padding:3px 9px;border-radius:4px;font-size:11px;color:var(--dim);border:1px solid var(--border);background:rgba(255,255,255,0.02)}
+#smp-lp .pcard-bottom{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-top:1px solid var(--border);position:relative;z-index:2}
+#smp-lp .price{display:flex;align-items:baseline;gap:8px}
+#smp-lp .price-current{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white)}
+#smp-lp .price-was{font-size:13px;color:var(--muted);text-decoration:line-through}
+#smp-lp .pcard-cta{display:flex;align-items:center;gap:6px;padding:10px 18px;background:rgba(200,32,40,0.12);border:1px solid rgba(200,32,40,0.3);border-radius:6px;color:var(--red2);font-size:13px;font-weight:600;transition:all .18s;letter-spacing:.04em}
+#smp-lp .pcard-cta:hover{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 0 20px rgba(200,32,40,0.4)}
+#smp-lp .pcard-cta svg{width:14px;height:14px;transition:transform .18s}
+#smp-lp .pcard-cta:hover svg{transform:translateX(3px)}
+#smp-lp .pcard-glow{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;transition:opacity .3s}
+#smp-lp .pcard:hover .pcard-glow{opacity:1}
+
+/* ── 3D FEATURE GRID ───────────────────────────────────── */
+#smp-lp .features{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+#smp-lp .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border)}
+#smp-lp .feat-item{background:var(--ink2);padding:36px 30px;transition:background .2s}
+#smp-lp .feat-item:hover{background:var(--card)}
+#smp-lp .feat-icon{width:44px;height:44px;border-radius:10px;background:rgba(200,32,40,0.1);border:1px solid rgba(200,32,40,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+#smp-lp .feat-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);margin-bottom:8px;letter-spacing:.04em}
+#smp-lp .feat-body{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ── PROCESS STEPS ─────────────────────────────────────── */
+#smp-lp .steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0;position:relative;margin-top:48px}
+#smp-lp .step{text-align:center;padding:32px 20px;position:relative}
+#smp-lp .step::after{content:'';position:absolute;top:38px;right:0;width:1px;height:40px;background:var(--border)}
+#smp-lp .step:last-child::after{display:none}
+#smp-lp .step-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(200,32,40,0.12);line-height:1;margin-bottom:-10px}
+#smp-lp .step-title{font-weight:700;font-size:14px;color:var(--white);margin-bottom:8px;letter-spacing:.05em;text-transform:uppercase}
+#smp-lp .step-body{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ── CTA SECTION ───────────────────────────────────────── */
+#smp-lp .cta-section{background:linear-gradient(135deg,#0A0005,#070018,#0A0005);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+#smp-lp .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,32,40,0.08),transparent 70%);pointer-events:none}
+#smp-lp .cta-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,84px);color:var(--white);line-height:.95;margin-bottom:20px}
+#smp-lp .cta-h2 span{color:var(--red2)}
+#smp-lp .cta-sub{font-size:16px;color:var(--dim);max-width:460px;margin:0 auto 36px;line-height:1.65}
+#smp-lp .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── DISCLAIMER ────────────────────────────────────────── */
+#smp-lp .legal-bar{background:var(--ink2);border-top:1px solid var(--border);padding:16px 20px;text-align:center}
+#smp-lp .legal-bar p{font-size:11px;color:var(--muted);max-width:800px;margin:0 auto;line-height:1.6}
+#smp-lp .legal-bar a{color:var(--dim);text-decoration:underline}
+
+/* ── ANIMATIONS ────────────────────────────────────────── */
+@keyframes smp-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.7)}}
+@keyframes smp-scrollline{0%{transform:scaleY(0);transform-origin:top;opacity:0}40%{transform:scaleY(1);opacity:1}100%{transform:scaleY(0);transform-origin:bottom;opacity:0}}
+@keyframes smp-fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes smp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media(max-width:640px){
+  #smp-lp .tab-btn{font-size:11px;padding:9px 14px;min-width:80px}
+  #smp-lp .stats-bar{gap:24px}
+  #smp-lp .step::after{display:none}
+  #smp-lp .hero-ctas{flex-direction:column;align-items:center}
+}
+</style>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <canvas id="smpCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span></span>
+      Triple-Verified · 3 Independent US Labs · COA On Every Batch
+    </div>
+    <h1 class="hero-h1">RESEARCH<br><em>PEPTIDES</em><br>DONE RIGHT</h1>
+    <p class="hero-sub">5,000+ researchers trust SMART MD. HPLC + mass spec + endotoxin testing on every compound. 131 verified peptides. No shortcuts.</p>
+    <div class="hero-ctas">
+      <a href="/compounds" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Shop All Compounds
+      </a>
+      <a href="/verify" class="btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Verify a Batch
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">5<span>,000+</span></div><div class="stat-label">Active Researchers</div></div>
+  <div class="stat"><div class="stat-num">131</div><div class="stat-label">Verified Compounds</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Independent Labs</div></div>
+  <div class="stat"><div class="stat-num">99<span>.2%</span></div><div class="stat-label">Average Purity</div></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PRODUCTS + TABS
+════════════════════════════════════════════════════════════ -->
+<section class="section" id="smp-products">
+  <div class="wrap">
+    <div class="section-label">Compound Library</div>
+    <h2 class="section-h2">SHOP BY GOAL</h2>
+    <p class="section-sub" style="margin-bottom:36px">Research-grade peptides organized by your focus area. Every batch triple-verified.</p>
+
+    <!-- TABS -->
+    <div class="tab-nav" role="tablist">
+      <button class="tab-btn active" data-tab="all"     role="tab">All</button>
+      <button class="tab-btn"        data-tab="him"     role="tab">For Him</button>
+      <button class="tab-btn"        data-tab="her"     role="tab">For Her</button>
+      <button class="tab-btn"        data-tab="wellness"role="tab">Wellness</button>
+      <button class="tab-btn"        data-tab="recovery"role="tab">Recovery</button>
+    </div>
+
+    <!-- ALL -->
+    <div class="tab-pane active" id="tab-all">
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-hot">🔥 Best Seller</span>
+          <div class="pcard-name">Wolverine Blend</div>
+          <div class="pcard-desc">BPC-157 + TB-500 + Ipamorelin. The ultimate injury repair and growth hormone stack. Trusted by elite researchers worldwide.</div>
+          <div class="pcard-tags"><span class="ptag">Recovery</span><span class="ptag">Performance</span><span class="ptag">Anti-aging</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$150</span><span class="price-was">$188</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-her">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-new">✦ New Batch</span>
+          <div class="pcard-name">Glow Stack</div>
+          <div class="pcard-desc">GHK-Cu + NAD+ + Ipamorelin. Collagen synthesis, cellular energy, and body composition in one formulation.</div>
+          <div class="pcard-tags"><span class="ptag">Skin</span><span class="ptag">Longevity</span><span class="ptag">Collagen</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$140</span><span class="price-was">$175</span></div>
+          <a href="/for-her" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Most Studied</span>
+          <div class="pcard-name">BPC-157</div>
+          <div class="pcard-desc">Body Protection Compound. Extensively researched for tissue repair, gut healing, and tendon regeneration.</div>
+          <div class="pcard-tags"><span class="ptag">Healing</span><span class="ptag">Gut Health</span><span class="ptag">Joints</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$85</span><span class="price-was">$106</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-top">◆ Premium</span>
+          <div class="pcard-name">NAD+ (500mg)</div>
+          <div class="pcard-desc">Cellular energy co-factor. Research explores roles in DNA repair, mitochondrial function, and longevity pathways.</div>
+          <div class="pcard-tags"><span class="ptag">Energy</span><span class="ptag">Longevity</span><span class="ptag">Cognition</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$95</span><span class="price-was">$119</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Popular</span>
+          <div class="pcard-name">CJC-1295 + Ipamorelin</div>
+          <div class="pcard-desc">Dual-action growth hormone secretagogue blend. Research explores sleep quality, body composition, and recovery.</div>
+          <div class="pcard-tags"><span class="ptag">GH Axis</span><span class="ptag">Sleep</span><span class="ptag">Muscle</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$110</span><span class="price-was">$138</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-new">✦ New</span>
+          <div class="pcard-name">Epitalon</div>
+          <div class="pcard-desc">Tetrapeptide studied for telomere biology research and pineal gland regulation. One of the widely studied longevity peptides.</div>
+          <div class="pcard-tags"><span class="ptag">Longevity</span><span class="ptag">Telomeres</span><span class="ptag">Sleep</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$100</span><span class="price-was">$125</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+    </div>
+
+    <!-- FOR HIM -->
+    <div class="tab-pane" id="tab-him">
+      <div class="pcard" data-href="/for-him">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-hot">🔥 #1 For Him</span>
+          <div class="pcard-name">Wolverine Blend</div>
+          <div class="pcard-desc">The stack built for performance and recovery. BPC-157 + TB-500 + Ipamorelin in one verified compound.</div>
+          <div class="pcard-tags"><span class="ptag">Performance</span><span class="ptag">Recovery</span><span class="ptag">Strength</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$150</span><span class="price-was">$188</span></div>
+          <a href="/for-him" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-him">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Popular</span>
+          <div class="pcard-name">CJC-1295 + Ipamorelin</div>
+          <div class="pcard-desc">GH secretagogue blend for muscle, sleep, and metabolic health research. Most popular two-peptide protocol.</div>
+          <div class="pcard-tags"><span class="ptag">Growth Hormone</span><span class="ptag">Muscle</span><span class="ptag">Sleep</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$110</span><span class="price-was">$138</span></div>
+          <a href="/for-him" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-him">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-top">◆ Research Grade</span>
+          <div class="pcard-name">TB-500 (5mg)</div>
+          <div class="pcard-desc">Thymosin Beta-4 fragment. Studied for tissue regeneration, injury repair, and inflammation regulation.</div>
+          <div class="pcard-tags"><span class="ptag">Injury Repair</span><span class="ptag">Inflammation</span><span class="ptag">Tendons</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$90</span><span class="price-was">$113</span></div>
+          <a href="/for-him" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-him">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Most Studied</span>
+          <div class="pcard-name">BPC-157 (5mg)</div>
+          <div class="pcard-desc">Body Protection Compound. 30+ years of research. Gut, joint, and tissue healing properties studied extensively.</div>
+          <div class="pcard-tags"><span class="ptag">Healing</span><span class="ptag">Gut</span><span class="ptag">Joints</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$85</span><span class="price-was">$106</span></div>
+          <a href="/for-him" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+    </div>
+
+    <!-- FOR HER -->
+    <div class="tab-pane" id="tab-her">
+      <div class="pcard" data-href="/for-her">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-hot">✦ #1 For Her</span>
+          <div class="pcard-name">Glow Stack</div>
+          <div class="pcard-desc">GHK-Cu + NAD+ + Ipamorelin. Collagen, cellular energy, and body composition. The women's performance blend.</div>
+          <div class="pcard-tags"><span class="ptag">Skin</span><span class="ptag">Collagen</span><span class="ptag">Longevity</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$140</span><span class="price-was">$175</span></div>
+          <a href="/for-her" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-her">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-new">✦ Premium</span>
+          <div class="pcard-name">GHK-Cu (50mg)</div>
+          <div class="pcard-desc">Copper peptide studied for collagen production, wound healing, and skin tissue regeneration.</div>
+          <div class="pcard-tags"><span class="ptag">Skin Health</span><span class="ptag">Anti-aging</span><span class="ptag">Collagen</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$80</span><span class="price-was">$100</span></div>
+          <a href="/for-her" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-her">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-top">◆ Popular</span>
+          <div class="pcard-name">NAD+ (500mg)</div>
+          <div class="pcard-desc">Nicotinamide adenine dinucleotide. Energy metabolism and cellular health research compound.</div>
+          <div class="pcard-tags"><span class="ptag">Energy</span><span class="ptag">Longevity</span><span class="ptag">DNA Repair</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$95</span><span class="price-was">$119</span></div>
+          <a href="/for-her" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/for-her">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Research Grade</span>
+          <div class="pcard-name">Ipamorelin (2mg)</div>
+          <div class="pcard-desc">Selective GH secretagogue. Research explores body composition, sleep quality, and metabolic function.</div>
+          <div class="pcard-tags"><span class="ptag">Body Comp</span><span class="ptag">Sleep</span><span class="ptag">GH Axis</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$75</span><span class="price-was">$94</span></div>
+          <a href="/for-her" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+    </div>
+
+    <!-- WELLNESS -->
+    <div class="tab-pane" id="tab-wellness">
+      <div class="pcard" data-href="/wellness">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-new">✦ Longevity</span>
+          <div class="pcard-name">Epitalon</div>
+          <div class="pcard-desc">Tetrapeptide studied for telomere biology research, circadian rhythm regulation, and longevity biomarkers.</div>
+          <div class="pcard-tags"><span class="ptag">Longevity</span><span class="ptag">Telomeres</span><span class="ptag">Pineal</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$100</span><span class="price-was">$125</span></div>
+          <a href="/wellness" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/wellness">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-hot">🔥 Top Seller</span>
+          <div class="pcard-name">NAD+ (500mg)</div>
+          <div class="pcard-desc">Cellular energy co-factor. Research spans DNA repair, mitochondrial biogenesis, and sirtuins activation.</div>
+          <div class="pcard-tags"><span class="ptag">Energy</span><span class="ptag">DNA Repair</span><span class="ptag">Mitochondria</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$95</span><span class="price-was">$119</span></div>
+          <a href="/wellness" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/wellness">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-top">◆ Immune</span>
+          <div class="pcard-name">Thymosin Alpha-1</div>
+          <div class="pcard-desc">FDA-approved in 35+ countries. Studied for immune modulation, T-cell differentiation, and antiviral response.</div>
+          <div class="pcard-tags"><span class="ptag">Immune</span><span class="ptag">T-Cells</span><span class="ptag">Antiviral</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$120</span><span class="price-was">$150</span></div>
+          <a href="/wellness" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/wellness">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Skin Health</span>
+          <div class="pcard-name">GHK-Cu (50mg)</div>
+          <div class="pcard-desc">Copper peptide. Collagen synthesis, wound healing, anti-inflammatory properties studied extensively.</div>
+          <div class="pcard-tags"><span class="ptag">Collagen</span><span class="ptag">Wound Healing</span><span class="ptag">Skin</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$80</span><span class="price-was">$100</span></div>
+          <a href="/wellness" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+    </div>
+
+    <!-- RECOVERY -->
+    <div class="tab-pane" id="tab-recovery">
+      <div class="pcard" data-href="/for-him">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-hot">🔥 #1 Recovery</span>
+          <div class="pcard-name">Wolverine Blend</div>
+          <div class="pcard-desc">BPC-157 + TB-500 + Ipamorelin. The triple-action recovery protocol. Most complete healing stack available.</div>
+          <div class="pcard-tags"><span class="ptag">Injury Repair</span><span class="ptag">Inflammation</span><span class="ptag">Regeneration</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$150</span><span class="price-was">$188</span></div>
+          <a href="/for-him" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-pop">◈ Most Studied</span>
+          <div class="pcard-name">BPC-157 (5mg)</div>
+          <div class="pcard-desc">30+ years of research on gut healing, tendon repair, and neurological protection. The gold standard recovery peptide.</div>
+          <div class="pcard-tags"><span class="ptag">Tissue Repair</span><span class="ptag">Gut Healing</span><span class="ptag">Neuro</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$85</span><span class="price-was">$106</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-top">◆ Structural Repair</span>
+          <div class="pcard-name">TB-500 (5mg)</div>
+          <div class="pcard-desc">Thymosin Beta-4 analog. Actin-binding properties studied for muscle fiber repair and vascular regeneration.</div>
+          <div class="pcard-tags"><span class="ptag">Muscle Fiber</span><span class="ptag">Vascular</span><span class="ptag">Tendons</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$90</span><span class="price-was">$113</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+      <div class="pcard" data-href="/compounds">
+        <div class="pcard-shine"></div>
+        <div class="pcard-top">
+          <span class="pcard-badge badge-new">✦ Anti-Inflammatory</span>
+          <div class="pcard-name">KPV (5mg)</div>
+          <div class="pcard-desc">Tripeptide studied for gut inflammation, IBD research, and systemic anti-inflammatory pathways.</div>
+          <div class="pcard-tags"><span class="ptag">Gut</span><span class="ptag">Anti-Inflam</span><span class="ptag">IBD</span></div>
+        </div>
+        <div class="pcard-bottom">
+          <div class="price"><span class="price-current">$78</span><span class="price-was">$98</span></div>
+          <a href="/compounds" class="pcard-cta">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pcard-glow"></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="/compounds" class="btn-ghost" style="display:inline-flex">
+        View All 131 Compounds
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:8px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FEATURES / WHY SMART MD
+════════════════════════════════════════════════════════════ -->
+<section class="section features" style="padding:0">
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="feat-icon">🔬</div>
+      <div class="feat-title">TRIPLE VERIFIED</div>
+      <div class="feat-body">HPLC purity, mass spectrometry, and endotoxin testing. Three independent US labs on every single batch. COA published publicly.</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-title">SAME-DAY SHIP</div>
+      <div class="feat-body">Orders placed before 2PM PST ship same day. Cold-pack shipping on temperature-sensitive compounds. Tracked nationwide.</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🧬</div>
+      <div class="feat-title">131 COMPOUNDS</div>
+      <div class="feat-body">The most complete peptide library available. BPC-157, TB-500, NAD+, GHK-Cu, Epitalon, and 126 more verified compounds.</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🛡️</div>
+      <div class="feat-title">RESEARCH USE ONLY</div>
+      <div class="feat-body">All compounds clearly labeled for research use only. Full compliance architecture. COA verification available on every batch at verify page.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     VERIFICATION PROCESS
+════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div>
+        <div class="section-label">Why We're Different</div>
+        <h2 class="section-h2">VERIFICATION<br>YOU CAN<br><span style="color:var(--red2)">ACTUALLY SEE</span></h2>
+        <p class="section-sub">Most suppliers say "lab tested." We show you the test. Every batch has a public COA with exact purity %, molecular weight confirmation, and endotoxin levels.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="/verify" class="btn-primary">Verify a Batch</a>
+          <a href="/quality" class="btn-ghost">Our Process</a>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Synthesis</div>
+          <div class="step-body">Manufactured in FDA-registered US facilities using pharmaceutical-grade reagents.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">HPLC Test</div>
+          <div class="step-body">High-performance liquid chromatography confirms purity percentage to two decimal places.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Mass Spec</div>
+          <div class="step-body">Mass spectrometry verifies molecular identity. No substitutions, no fillers.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-title">COA Published</div>
+          <div class="step-body">Certificate of Analysis published publicly. Verify any batch by lot number, instantly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CTA
+════════════════════════════════════════════════════════════ -->
+<section class="section cta-section">
+  <div class="wrap" style="position:relative;z-index:1">
+    <h2 class="cta-h2">DON'T BE<br><span>DUMB.</span><br>BE SMART.</h2>
+    <p class="cta-sub">Research-grade peptides. Triple verified. Shipped same day. Join 5,000+ researchers who don't settle for less.</p>
+    <div class="cta-btns">
+      <a href="/compounds" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Shop All Compounds
+      </a>
+      <a href="/wholesale" class="btn-ghost">Wholesale Pricing</a>
+      <a href="/affiliates" class="btn-ghost">Join Peptide Papis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     LEGAL DISCLAIMER
+════════════════════════════════════════════════════════════ -->
+<div class="legal-bar">
+  <p>All products are sold for <strong>Research Use Only</strong>. Not for human consumption. Not intended to diagnose, treat, cure, or prevent any disease. For use by qualified researchers only. <a href="/disclaimer">Full Disclaimer</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ── THREE.JS PARTICLE HERO ─────────────────────────────── */
+var canvas = document.getElementById('smpCanvas');
+if(canvas && typeof THREE !== 'undefined'){
+  var renderer = new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setClearColor(0x000000,0);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(60,canvas.offsetWidth/canvas.offsetHeight,0.1,1000);
+  camera.position.z = 5;
+
+  // Particles
+  var N = 160;
+  var geo = new THREE.BufferGeometry();
+  var pos = new Float32Array(N*3);
+  var vel = [];
+  for(var i=0;i<N;i++){
+    pos[i*3]   = (Math.random()-0.5)*14;
+    pos[i*3+1] = (Math.random()-0.5)*10;
+    pos[i*3+2] = (Math.random()-0.5)*6;
+    vel.push({x:(Math.random()-.5)*.004,y:(Math.random()-.5)*.004,z:0});
+  }
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  var mat = new THREE.PointsMaterial({color:0xC82028,size:0.04,transparent:true,opacity:0.7});
+  var points = new THREE.Points(geo,mat);
+  scene.add(points);
+
+  // Lines between nearby particles
+  var lineMat = new THREE.LineBasicMaterial({color:0xC82028,transparent:true,opacity:0.08});
+  var lineGeo = new THREE.BufferGeometry();
+  var linePos = new Float32Array(N*N*6);
+  lineGeo.setAttribute('position',new THREE.BufferAttribute(linePos,3));
+  var lines = new THREE.LineSegments(lineGeo,lineMat);
+  scene.add(lines);
+
+  var mouse = {x:0,y:0};
+  document.addEventListener('mousemove',function(e){
+    mouse.x = (e.clientX/window.innerWidth-0.5)*2;
+    mouse.y = -(e.clientY/window.innerHeight-0.5)*2;
+  });
+
+  function resize(){
+    var w=canvas.offsetWidth,h=canvas.offsetHeight;
+    renderer.setSize(w,h,false);
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  var clock = new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    var t = clock.getElapsedTime();
+
+    // Move particles
+    for(var i=0;i<N;i++){
+      pos[i*3]   += vel[i].x;
+      pos[i*3+1] += vel[i].y;
+      if(pos[i*3]>7)pos[i*3]=-7;
+      if(pos[i*3]<-7)pos[i*3]=7;
+      if(pos[i*3+1]>5)pos[i*3+1]=-5;
+      if(pos[i*3+1]<-5)pos[i*3+1]=5;
+    }
+    geo.attributes.position.needsUpdate=true;
+
+    // Update connection lines
+    var li=0;
+    var DIST=3.5;
+    for(var a=0;a<N;a++){
+      for(var b=a+1;b<N;b++){
+        var dx=pos[a*3]-pos[b*3];
+        var dy=pos[a*3+1]-pos[b*3+1];
+        var dz=pos[a*3+2]-pos[b*3+2];
+        if(Math.sqrt(dx*dx+dy*dy+dz*dz)<DIST){
+          linePos[li++]=pos[a*3];linePos[li++]=pos[a*3+1];linePos[li++]=pos[a*3+2];
+          linePos[li++]=pos[b*3];linePos[li++]=pos[b*3+1];linePos[li++]=pos[b*3+2];
+        }
+      }
+    }
+    lineGeo.attributes.position.needsUpdate=true;
+    lineGeo.setDrawRange(0,li/3);
+
+    // Subtle camera parallax from mouse
+    camera.position.x += (mouse.x*.8 - camera.position.x)*.02;
+    camera.position.y += (mouse.y*.5 - camera.position.y)*.02;
+    camera.lookAt(scene.position);
+
+    // Slow rotation
+    points.rotation.z = t*0.02;
+
+    renderer.render(scene,camera);
+  }
+  animate();
+}
+
+/* ── TAB SWITCHING ──────────────────────────────────────── */
+var tabs = document.querySelectorAll('#smp-lp .tab-btn');
+var panes = document.querySelectorAll('#smp-lp .tab-pane');
+tabs.forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var target = btn.getAttribute('data-tab');
+    tabs.forEach(function(b){b.classList.remove('active')});
+    panes.forEach(function(p){p.classList.remove('active')});
+    btn.classList.add('active');
+    var pane = document.getElementById('tab-'+target);
+    if(pane) pane.classList.add('active');
+  });
+});
+
+/* ── 3D CARD TILT ───────────────────────────────────────── */
+document.querySelectorAll('#smp-lp .pcard').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r = card.getBoundingClientRect();
+    var x = e.clientX - r.left;
+    var y = e.clientY - r.top;
+    var cx = r.width/2, cy = r.height/2;
+    var rx = (y-cy)/cy * -8;
+    var ry = (x-cx)/cx * 8;
+    card.style.transform = 'perspective(700px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateZ(6px)';
+    // Shine follow
+    var shine = card.querySelector('.pcard-shine');
+    if(shine){
+      shine.style.setProperty('--mx', (x/r.width*100)+'%');
+      shine.style.setProperty('--my', (y/r.height*100)+'%');
+    }
+  });
+  card.addEventListener('mouseleave',function(){
+    card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateZ(0)';
+    card.style.transition = 'transform .4s cubic-bezier(.23,1,.32,1)';
+    setTimeout(function(){card.style.transition=''},400);
+  });
+  card.addEventListener('click',function(){
+    var href = card.getAttribute('data-href');
+    if(href) window.location.href = href;
+  });
+});
+
+/* ── ANIMATED COUNTER ───────────────────────────────────── */
+function countUp(el,end,suffix){
+  var start=0,dur=1600,step=16;
+  var timer=setInterval(function(){
+    start+=Math.ceil(end/(dur/step));
+    if(start>=end){start=end;clearInterval(timer);}
+    el.textContent=start.toLocaleString()+suffix;
+  },step);
+}
+var observed=false;
+var statsBar=document.querySelector('#smp-lp .stats-bar');
+if(statsBar && window.IntersectionObserver){
+  new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !observed){
+      observed=true;
+      var nums=document.querySelectorAll('#smp-lp .stat-num');
+      nums[0].innerHTML='<span id="c1">0</span><span>,000+</span>';
+      nums[1].innerHTML='<span id="c2">0</span>';
+      nums[2].innerHTML='3';
+      nums[3].innerHTML='<span id="c3">0</span><span>.2%</span>';
+      countUp(document.getElementById('c1'),5,'');
+      countUp(document.getElementById('c2'),131,'');
+      countUp(document.getElementById('c3'),99,'');
+    }
+  },{threshold:.5}).observe(statsBar);
+}
+
+})();
+</script>
+
+</div><!-- /#smp-lp -->
+
+<!-- SMART-MD-SCHEMA-INJECTED -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://smartmdpeptides.com/#organization","name":"SMART MD Peptides","alternateName":["SMART MD","SMART MD LLC"],"url":"https://smartmdpeptides.com","logo":"https://smartmdpeptides.com/logo.png","description":"Research-grade peptide compounds with 99.1% HPLC-verified purity, lot-specific COAs from 3 independent U.S. laboratories. For research purposes only.","email":"info@smartmbservices.com","telephone":"+1-251-387-7712","address":{"@type":"PostalAddress","addressLocality":"Anaheim","addressRegion":"CA","postalCode":"92806","addressCountry":"US"},"sameAs":["https://www.instagram.com/smrtnetwork","https://smartmbservices.com"],"foundingDate":"2024","founder":[{"@type":"Person","name":"Moe","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Joe","jobTitle":"Partner"}],"knowsAbout":["Research peptides","BPC-157","TB-500","NAD+","GLP-1 peptides","GLP-1SM","GLP-2TZ","GLP-3RT","Tesamorelin","Ipamorelin","CJC-1295","Lab-verified peptides","COA verification","Peptide research compliance"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://smartmdpeptides.com/#website","url":"https://smartmdpeptides.com","name":"SMART MD Peptides","publisher":{"@id":"https://smartmdpeptides.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://smartmdpeptides.com/compounds?q={search_term_string}","query-input":"required name=search_term_string"}}</script>  <script src="/js/main.js" defer></script> </body> </html>
